@@ -8,6 +8,8 @@ fi
 set -x
 
 touch ~/Installation.log
+touch ~/tmp_bashrc
+
 echo "1 von 26: : SUDO - rechte um ohne Passworteingabe zukünftig installieren zu können" >> ~/Installation.log
 #sudo cp /etc/sudoers /etc/sudoers.bak
 #sudo echo 'nvidia ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
@@ -63,7 +65,9 @@ cd   ~/cmake-3.17.0/
 ./bootstrap
 make   -j4
 echo 'export PATH=/home/nvidia/cmake-3.17.0/bin/:/home/nvidia/.local/bin/:$PATH' >> ~/.bashrc
+echo 'export PATH=/home/nvidia/cmake-3.17.0/bin/:/home/nvidia/.local/bin/:$PATH' >> ~/tmp_bashrc
 eval "$(cat ~/.bashrc | tail -n +1)"
+source ~/tmp_bashrc
 sudo apt -y autoremove
 echo "11.1 von 26: Pfadprüfung - Pfad ist gesetzt auf:" >> ~/Installation.log
 echo $PATH >> ~/Installation.log
@@ -75,16 +79,23 @@ rm get-pip.py
 
 echo "12 von 26: Virtuelle Umgebung installieren, anpassen und aktivieren" >> ~/Installation.log
 sudo pip install virtualenv virtualenvwrapper
+echo '#virtualenv and virtualenvwrapper' >> ~/tmp_bashrc
+echo 'export WORKON_HOME=$HOME/.virtualenvs' >> ~/tmp_bashrc
+echo 'export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3' >> ~/tmp_bashrc
+echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/tmp_bashrc
 echo '#virtualenv and virtualenvwrapper' >> ~/.bashrc
 echo 'export WORKON_HOME=$HOME/.virtualenvs' >> ~/.bashrc
 echo 'export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3' >> ~/.bashrc
 echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/.bashrc
+
+source /usr/local/bin/virtualenvwrapper.sh
 echo "12.1 von 26: Environmentprüfung - gesetzt auf:" >> ~/Installation.log
 echo $WORKON_HOME >> ~/Installation.log
 echo $VIRTUALENVWRAPPER_PYTHON >> ~/Installation.log
 
 echo "13 von 26: Virtuelle Umgebung bauen" >> ~/Installation.log
 eval "$(cat ~/.bashrc | tail -n +3)"
+source ~/tmp_bashrc
 #chmod a+x ~/.bashrc
 #PS1='$ '
 #source ~/.bashrc
@@ -92,7 +103,7 @@ mkvirtualenv py3cv4  -p python3
 workon py3cv4
 
 echo "13.1 von 26: Erledigt. Neuer workspace für Installation ist:" >> ~/Installation.log
-pwd >> Installation.log
+echo $PWD >> Installation.log
 
 echo "14 von 26: Protobuf installieren" >> ~/Installation.log
 wget https://raw.githubusercontent.com/jkjung-avt/jetson_nano/master/install_protobuf-3.6.1.sh
@@ -110,10 +121,14 @@ pip install --extra-index-url https://developer.download.nvidia.com/compute/redi
 pip install scipy
 pip install keras
 pip3 install pybind11
+echo 'export CUDA_VISIBLE_DEVICES=1' >> ~/tmp_bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64' >> ~/tmp_bashrc
+echo 'export PATH=$PATH:/usr/local/cuda/bin' >> ~/tmp_bashrc
 echo 'export CUDA_VISIBLE_DEVICES=1' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64' >> ~/.bashrc
 echo 'export PATH=$PATH:/usr/local/cuda/bin' >> ~/.bashrc
 eval "$(cat ~/.bashrc | tail -n +3)"
+source ~/tmp_bashrc
 
 echo "16 von 26: Installieren der Objekterkennung für TF" >> ~/Installation.log
 cd ~
@@ -215,6 +230,7 @@ cd resizeSwapMemory
 echo "Ende der Installation. Bitte als root den Script nvidiaNOsudoers.sh ausführen!"
 echo "Ende der Installation. Bitte als root den Script nvidiaNOsudoers.sh ausführen!"  >> ~/Installation.log
 echo "******************************************************************************"
+rm ~/tmp_bashrc
 sudo reboot
 
 
