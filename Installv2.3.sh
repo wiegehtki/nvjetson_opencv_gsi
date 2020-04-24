@@ -56,6 +56,10 @@ sudo apt -y install python-tk libgtk-3-dev libcanberra-gtk-module libcanberra-gt
 echo "9 von 26: Pakete für die (USB) Kamera" >> ~/Installation.log
 sudo apt -y install libv4l-dev libdc1394-22-dev v4l-utils
 
+echo "9.1 von 26: WIEGEHTKI Repo-clone" >> ~/Installation.log
+cd ~
+git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
+
 echo "10 von 26: PreCompiler: cmake" >> ~/Installation.log
 sudo apt -y purge cmake
 wget http://www.cmake.org/files/v3.17/cmake-3.17.0.tar.gz
@@ -104,11 +108,13 @@ echo "13.2 von 26: Erledigt. Neuer workspace für Installation ist:" >> ~/Instal
 echo $PS1 >> ~/Installation.log
 
 echo "14 von 26: Protobuf installieren" >> ~/Installation.log
-wget https://raw.githubusercontent.com/jkjung-avt/jetson_nano/master/install_protobuf-3.6.1.sh
-sudo chmod +x install_protobuf-3.6.1.sh
-./install_protobuf-3.6.1.sh
+#wget https://raw.githubusercontent.com/jkjung-avt/jetson_nano/master/install_protobuf-3.11.4.sh
+cp -r ~/nvjetson_opencv_gsi/install_protobuf-3.11.4.sh ~/.
+
+sudo chmod +x install_protobuf-3.11.4.sh
+./install_protobuf-3.11.4.sh
 cd ~
-cp -r ~/src/protobuf-3.6.1/python/ .
+cp -r ~/src/protobuf-3.11.4/python/ .
 cd python
 python setup.py install --cpp_implementation
 
@@ -205,9 +211,9 @@ sudo ldconfig
 echo "22 von 26: Kleiner WEBServer und Jupyter Notebook machen die Arbeit einfacher" >> ~/Installation.log
 pip install flask jupyter
 
-echo "23 von 26: Beispiele von WIEGHTKI ziehen" >> ~/Installation.log
+#echo "23 von 26: Beispiele von WIEGHTKI ziehen" >> ~/Installation.log
 cd ~
-git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
+#git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
 
 echo "24 von 26: XML-Tool und Fortschrittsanzeige" >> ~/Installation.log
 pip install lxml progressbar2
