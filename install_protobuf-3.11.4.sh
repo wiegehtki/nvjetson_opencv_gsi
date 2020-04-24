@@ -9,14 +9,14 @@ cd $folder
 if [ ! -f protobuf-python-3.11.4.zip ]; then
   wget https://github.com/protocolbuffers/protobuf/releases/download/v3.11.4/protobuf-python-3.11.4.zip
 fi
-if [ ! -f protoc-3.6.1-linux-aarch_64.zip ]; then
+if [ ! -f protoc-3.11.4-linux-aarch_64.zip ]; then
   wget https://github.com/protocolbuffers/protobuf/releases/download/v3.11.4/protoc-3.11.4-linux-aarch_64.zip
 fi
 
 echo "** Install protoc"
 unzip protobuf-python-3.11.4.zip
-unzip protoc-3.6.1-linux-aarch_64.zip -d protoc-3.11.4
-sudo cp protoc-3.6.1/bin/protoc /usr/local/bin/protoc
+unzip protoc-3.11.4-linux-aarch_64.zip -d protoc-3.11.4
+sudo cp protoc-3.11.4/bin/protoc /usr/local/bin/protoc
 
 echo "** Build and install protobuf-3.11.4 libraries"
 export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=cpp
