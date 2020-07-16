@@ -29,6 +29,8 @@ export CXXFLAGS=$CXXFLAGS" -w"
 #Vermeiden von ReadTimeOut bei PIP, falls mal die Verbindung Probleme macht
 export PIP_DEFAULT_TIMEOUT=100
 
+rm -rf ~/nvjetson_opencv_gsi
+
 echo $(date -u) "Test auf bestehende Installation.log"
                  test -f ~/Installation.log && rm ~/Installation.log
 
@@ -55,11 +57,9 @@ echo $(date -u) "Compilerflags: CFLAGS:'$CFLAGS' CPPFLAGS:'$CPPFLAGS' CXXFLAGS:'
 
 echo $(date -u) "03 von 30: Systemupdate"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 #sudo apt -y install apt-utils
                  sudo apt -y update
                  sudo apt -y dist-upgrade
                  sudo ldconfig
-                 #sudo apt -y autoremove
 
 echo $(date -u) "04 von 30: Swap-File mit 8GB anlegen, aktivieren und kontrollieren"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -82,7 +82,6 @@ echo $(date -u) "...............................................................
                  sudo apt -y install libfreetype6-dev python3-setuptools
                  sudo apt -y install protobuf-compiler libprotobuf-dev openssl
                  sudo apt -y install libcurl4-openssl-dev
-                 #sudo apt -y install cython3
 
 echo $(date -u) "07 von 30: XML Tool für Tensorflow API Objekterkennung"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -103,6 +102,9 @@ echo $(date -u) "10 von 30: WIEGEHTKI Repo-clone"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cd ~
                  git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
+                 mv ~/nvjetson_opencv_gsi/darknet.repo ~/darknet
+		 mv ~/nvjetson_opencv_gsi/smartcam.sh  ~/darknet/
+		 chmod +x ~/darknet/*
 
 echo $(date -u) "11 von 30: PreCompiler: cmake 3.17.1"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -118,7 +120,6 @@ echo $(date -u) "...............................................................
                  set +e
                  eval "$(cat ~/.bashrc | tail -n +1)"
                  set -e
-                 #sudo apt -y autoremove
 
 echo $(date -u) "12 von 30: Pfadprüfung - Pfad ist gesetzt auf:"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -143,7 +144,6 @@ echo $(date -u) "...............................................................
                  echo 'export WORKON_HOME=$HOME/.virtualenvs' >> ~/.bashrc
                  echo 'export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3' >> ~/.bashrc
                  echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/.bashrc
-                 #source /usr/local/bin/virtualenvwrapper.sh
 
                  set +e
                  eval "$(cat ~/.bashrc | tail -n +3)"
@@ -214,7 +214,7 @@ echo $(date -u) "...............................................................
                  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/lib
                  export PATH=$PATH:/usr/local/cuda/bin
                  pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow-gpu==1.15.0+nv20.1
-                 #sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 ‘tensorflow<2’
+
                  echo 'export CUDA_VISIBLE_DEVICES=0' >> ~/.bashrc
                  echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/lib' >> ~/.bashrc
                  echo 'export PATH=$PATH:/usr/local/cuda/bin' >> ~/.bashrc
@@ -224,24 +224,25 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "19 von 30: Installieren der Objekterkennung für TF"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 cd ~
-                 git clone https://github.com/tensorflow/models
-                 cd models && git checkout -q b00783d
-                 cd ~
-                 git clone https://github.com/cocodataset/cocoapi.git
-                 cd cocoapi/PythonAPI
-                 python setup.py install
-                 cd ~/models/research/
-                 protoc object_detection/protos/*.proto --python_out=.
-                 echo '#!/bin/sh' > ~/setup.sh
-                 echo 'export PYTHONPATH=$PYTHONPATH:/home/'$Benutzer'/models/research:\' >> ~/setup.sh
-                 echo '/home/'$Benutzer'/models/research/slim' >> ~/setup.sh
+                 echo "Installation TF de-aktiviert da es hier nicht benötigt wird."  | tee -a  ~/Installation.log
+                 #cd ~
+                 #git clone https://github.com/tensorflow/models
+                 #cd models && git checkout -q b00783d
+                 #cd ~
+                 #git clone https://github.com/cocodataset/cocoapi.git
+                 #cd cocoapi/PythonAPI
+                 #sudo python3 setup.py install
+                 #cd ~/models/research/
+                 #protoc object_detection/protos/*.proto --python_out=.
+                 #echo '#!/bin/sh' > ~/setup.sh
+                 #echo 'export PYTHONPATH=$PYTHONPATH:/home/'$Benutzer'/models/research:\' >> ~/setup.sh
+                 #echo '/home/'$Benutzer'/models/research/slim' >> ~/setup.sh
 
-                 echo 'export PYTHONPATH=$PYTHONPATH:/home/'$Benutzer'/models/research:\' >> ~/bashrc
-                 echo '/home/'$Benutzer'/models/research/slim' >> ~/bashrc.sh
-                 echo $(date -u) "19.1 von 30: PYTHONPATH kontrollieren:"  | tee -a  ~/Installation.log
-                 export PYTHONPATH=$PYTHONPATH:/home/$Benutzer/models/research:/home/$Benutzer/models/research/slim:/home/$Benutzer/.local/lib/python3.6/site-packages/
-                 echo $PYTHONPATH  | tee -a  ~/Installation.log
+                 #echo 'export PYTHONPATH=$PYTHONPATH:/home/'$Benutzer'/models/research:\' >> ~/bashrc
+                 #echo '/home/'$Benutzer'/models/research/slim' >> ~/bashrc.sh
+                 #echo $(date -u) "19.1 von 30: PYTHONPATH kontrollieren:"  | tee -a  ~/Installation.log
+                 #export PYTHONPATH=$PYTHONPATH:/home/$Benutzer/models/research:/home/$Benutzer/models/research/slim:/home/$Benutzer/.local/lib/python3.6/site-packages/
+                 #echo $PYTHONPATH  | tee -a  ~/Installation.log
 
 echo $(date -u) "20 von 30: Installation von NVIDIA vor-trainierten Modelle für TensorFlow / TensorRT"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -252,8 +253,7 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "21 von 30: OpenJPG, OpenCV herunterladen, compilieren und installieren"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 sudo apt -y install jasper 
-                 #libatlas3-base libatlas-base-dev liblapacke-dev
+                 sudo apt -y install jasper
                  cd ~
                  wget https://github.com/uclouvain/openjpeg/archive/v2.3.1.zip
                  unzip v2.3.1.zip
@@ -265,8 +265,6 @@ echo $(date -u) "...............................................................
                  cd ~/openjpeg-2.3.1/build
                  sudo make install
                  sudo make clean
-                 #cd ~/openjpeg-2.3.1/build
-                 #make doc
 
                  cd ~
                  wget -O opencv.zip https://github.com/opencv/opencv/archive/4.3.0.zip
@@ -313,9 +311,7 @@ echo $(date -u) "...............................................................
 
                  pip3 install -U matplotlib==3.2.1 scikit-learn
                  sudo apt -y install python3-tk
-                 #pip install -U --no-cache-dir scikit-build blosc imagecodecs
                  pip3 install pillow==7.1.2 imutils==0.5.3 
-                 #scikit-image
 
 echo $(date -u) "25 von 30: Installation von dlib und face recognition"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -346,40 +342,27 @@ echo $(date -u) "...............................................................
                  cd resizeSwapMemory
                  ./setSwapMemorySize.sh -g 8
                  sudo apt -y clean
-                 
 
 echo $(date -u) "29 von 30: Aufräumen"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 cat ~/path_input >> ~/.bashrc
-                 #export PATH=$(echo $PATH | awk -F: '{ for (i = 1; i <= NF; i++) arr[$i]; } END { for (i in arr) printf "%s:" , i; printf "\n"; } ') >> ~/.bashrc
-
-                 #PATH=$(echo -n $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}') >> ~/.bashrc
-                 #PATH=$(echo -n $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
+                 cat ~/nvjetson_opencv_gsi/path_input >> ~/.bashrc
                  set +e
                  eval "$(cat ~/.bashrc | tail -n +1)"
                  set -e
-                 #sudo apt -y clean
-                 #echo "export PATH=$(echo $PATH | awk -F: '{ for (i = 1; i <= NF; i++) arr[$i]; } END { for (i in arr) printf "%s:" , i; printf "\n"; } ') " >> ~/.bashrc
-                 #export PATH=$(echo $PATH | awk -F: '{ for (i = 1; i <= NF; i++) arr[$i]; } END { for (i in arr) printf "%s:" , i; printf "\n"; } ')
-
-                 #git clone https://github.com/AlexeyAB/darknet.git
-                 #cd ~/darknet
-                 #wget http://images.cocodataset.org/zips/test2017.zip
-   
+                 
 echo $(date -u) "29 von 30: Download Yolov3 und v4 - Weights"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-  
-				 cd ~
+		 cd ~
                 (ls ~/darknet/YoloWeights >> /dev/null 2>&1 && echo Verzeichnis existiert bereits) || echo Lege YoloWeights - Verzeichnis an && mkdir ~/darknet/YoloWeights
                 (ls ~/darknet/YoloWeights/yolov4.weights >> /dev/null 2>&1 && echo yolov4.weights bereits vorhanden) || echo Bitte Geduld, lade yolov4.weights && wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT" -O ~/darknet/YoloWeights/yolov4.weights && rm -rf /tmp/cookies.txt
                 (ls ~/darknet/YoloWeights/yolov3.weights >> /dev/null 2>&1 && echo yolov3.weights bereits vorhanden) || echo Bitte Geduld, lade yolov3.weights && wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10NEJcLeMYxhSx9WTQNHE0gfRaQaV8z8A' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10NEJcLeMYxhSx9WTQNHE0gfRaQaV8z8A" -O ~/darknet/YoloWeights/yolov3.weights && rm -rf /tmp/cookies.txt
                 (ls ~/darknet/YoloWeights/yolov3-tiny.weights >> /dev/null 2>&1 && echo yolov3-tiny.weights bereits vorhanden) || echo Bitte Geduld, lade yolov3-tiny.weights && wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=12R3y8p-HVUZOvWHAsk2SgrM3hX3k77zt' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=12R3y8p-HVUZOvWHAsk2SgrM3hX3k77zt" -O ~/darknet/YoloWeights/yolov3-tiny.weights && rm -rf /tmp/cookies.txt
 
-                 
 echo $(date -u) "Ende der Installation. "   | tee -a  ~/Installation.log
 echo $(date -u) "Bitte als root den Script nvidiaNOsudoers.sh ausführen!"   | tee -a  ~/Installation.log
 echo $(date -u) "Bitte als root den Script Finalisieren.sh ausführen!"      | tee -a  ~/Installation.log
-echo $(date -u) "======================================================="   | tee -a  ~/Installation.log
+echo $(date -u) "Bei Problemen mit YOLO: Terminal aufrufen, in darknet wechseln und make aufrufen."   | tee -a  ~/Installation.log
+echo $(date -u) "================================================================================="   | tee -a  ~/Installation.log
                  sudo reboot
 
 
