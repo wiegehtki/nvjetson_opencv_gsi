@@ -102,6 +102,7 @@ echo $(date -u) "10 von 30: WIEGEHTKI Repo-clone"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cd ~
                  git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
+		 chmod +x ~/nvjetson_opencv_gsi/*
                  mv ~/nvjetson_opencv_gsi/darknet.repo ~/darknet
 		 mv ~/nvjetson_opencv_gsi/smartcam.sh  ~/darknet/
 		 chmod +x ~/darknet/*
