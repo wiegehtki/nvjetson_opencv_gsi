@@ -346,7 +346,7 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "29 von 30: Aufräumen"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 cat ~/nvjetson_opencv_gsi/path_input >> ~/.bashrc
+                 cat ~/nvjetson_opencv_gsi/path.input >> ~/.bashrc
                  set +e
                  eval "$(cat ~/.bashrc | tail -n +1)"
                  set -e
