@@ -38,10 +38,10 @@ echo $(date -u) "Installation.log anlegen"
                  touch ~/Installation.log
 
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
-echo $(date -u) "# Objekterkunng mit OpenCV, TensoFlow, Yolov3. By WIEGEHTKI.DE                                                                      #" | tee -a  ~/Installation.log
-echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anwenden                                                              #" | tee -a  ~/Installation.log
+echo $(date -u) "# Objekterkunng mit OpenCV, TensoFlow, YOLO. By WIEGEHTKI.DE                                                                      #" | tee -a  ~/Installation.log
+echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                              #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.8, 24.04.2020                                                                                                                #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.6, 17.07.2020                                                                                                                #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "01 von 30: SUDO - rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
@@ -188,8 +188,8 @@ echo $(date -u) "...............................................................
                  ./configure
 
                  cd ~/protobuf
-                 make -j4 
-                 sudo make install 
+                 make -j4
+                 sudo make install
                  sudo ldconfig
 
 echo $(date -u) "17.2 von 30: Protobuffer auf Version prüfen:"  | tee -a  ~/Installation.log
@@ -225,7 +225,7 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "19 von 30: Installieren der Objekterkennung für TF"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 echo "Installation TF de-aktiviert da es hier nicht benötigt wird."  | tee -a  ~/Installation.log
+                 echo "Installation de-aktiviert da es hier nicht benötigt wird."  | tee -a  ~/Installation.log
                  #cd ~
                  #git clone https://github.com/tensorflow/models
                  #cd models && git checkout -q b00783d
@@ -344,20 +344,21 @@ echo $(date -u) "...............................................................
                  ./setSwapMemorySize.sh -g 8
                  sudo apt -y clean
 
-echo $(date -u) "29 von 30: Aufräumen"  | tee -a  ~/Installation.log
+echo $(date -u) "29 von 30: Download Yolov3 und v4 - Weights"  | tee -a  ~/Installation.log
+echo $(date -u) ".........................................................................................................................>
+                 cd ~
+                (ls ~/darknet/YoloWeights >> /dev/null 2>&1 && echo Verzeichnis existiert bereits) || echo Lege YoloWeights - Verzeichnis >
+                (ls ~/darknet/YoloWeights/yolov4.weights >> /dev/null 2>&1 && echo yolov4.weights bereits vorhanden) || echo Bitte Geduld,>
+                (ls ~/darknet/YoloWeights/yolov3.weights >> /dev/null 2>&1 && echo yolov3.weights bereits vorhanden) || echo Bitte Geduld,>
+                (ls ~/darknet/YoloWeights/yolov3-tiny.weights >> /dev/null 2>&1 && echo yolov3-tiny.weights bereits vorhanden) || echo Bit>
+
+
+echo $(date -u) "30 von 30: Pfad eintragen und reboot."  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cat ~/nvjetson_opencv_gsi/path.input >> ~/.bashrc
                  set +e
                  eval "$(cat ~/.bashrc | tail -n +1)"
                  set -e
-                 
-echo $(date -u) "29 von 30: Download Yolov3 und v4 - Weights"  | tee -a  ~/Installation.log
-echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-		 cd ~
-                (ls ~/darknet/YoloWeights >> /dev/null 2>&1 && echo Verzeichnis existiert bereits) || echo Lege YoloWeights - Verzeichnis an && mkdir ~/darknet/YoloWeights
-                (ls ~/darknet/YoloWeights/yolov4.weights >> /dev/null 2>&1 && echo yolov4.weights bereits vorhanden) || echo Bitte Geduld, lade yolov4.weights && wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT" -O ~/darknet/YoloWeights/yolov4.weights && rm -rf /tmp/cookies.txt
-                (ls ~/darknet/YoloWeights/yolov3.weights >> /dev/null 2>&1 && echo yolov3.weights bereits vorhanden) || echo Bitte Geduld, lade yolov3.weights && wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10NEJcLeMYxhSx9WTQNHE0gfRaQaV8z8A' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10NEJcLeMYxhSx9WTQNHE0gfRaQaV8z8A" -O ~/darknet/YoloWeights/yolov3.weights && rm -rf /tmp/cookies.txt
-                (ls ~/darknet/YoloWeights/yolov3-tiny.weights >> /dev/null 2>&1 && echo yolov3-tiny.weights bereits vorhanden) || echo Bitte Geduld, lade yolov3-tiny.weights && wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=12R3y8p-HVUZOvWHAsk2SgrM3hX3k77zt' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=12R3y8p-HVUZOvWHAsk2SgrM3hX3k77zt" -O ~/darknet/YoloWeights/yolov3-tiny.weights && rm -rf /tmp/cookies.txt
 
 echo $(date -u) "Ende der Installation. "   | tee -a  ~/Installation.log
 echo $(date -u) "Bitte als root den Script nvidiaNOsudoers.sh ausführen!"   | tee -a  ~/Installation.log
