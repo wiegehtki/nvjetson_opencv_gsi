@@ -29,7 +29,7 @@ Zur Installation könnt ihr wie folgt vorgehen, alle Befehle im Terminal ausfüh
 12.       ./Installv2.3.6.sh
 
 Kontrolle über ein zweites Terminalfenster mit:
-   cat Installation.log
+1.        cat Installation.log
    
 Nach der Installation sollte der Rechner einen reboot ausführen.
 Falls nicht, Fehler lokalisieren und ggfs. beheben.
