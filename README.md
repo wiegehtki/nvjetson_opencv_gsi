@@ -17,28 +17,25 @@ sudo jetson_clocks
 
 Zur Installation könnt ihr wie folgt vorgehen, alle Befehle im Terminal ausführen:
 
-1. sudo apt -y install git-all doxygen build-essential nghttp2 libnghttp2-dev libssl-dev
-2. git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
-3. cd ~
-4. cp nvjetson_opencv_gsi/*sh .
-5. sudo chmod +x *.sh
-6. sudo su
-7.  ./nvidia2sudoers.sh
-8. reboot
+1.  Einloggen und Terminal öffnen
+2.  Einstellungen->Terminal->Scrolling deaktivieren (mehr als 10000 lines möglich)
+3.  Im Terminal folgende Befehle eingeben:
+4.     cd ~
+5.     git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
+6.     cp nvjetson_opencv_gsi/*sh .
+7.     sudo chmod +x *.sh
+8.     sudo su
+9.     ./nvidia2sudoers.sh
+10.    exit 
+11.    cd ~
+12.    ./Installv2.3.6.sh
 
-< Terminal starten >
-9. cd ~
-10. ./Installv2.3.8.sh
-
-Nach der Installation, die mehrere Stunden dauern wird:
-11. sudo reboot
-
-< Terminal starten >
-12. cd ~
-13. sudo su
-14. ./Finalisieren.sh
-15. reboot
-    
+Kontrolle über ein zweites Terminalfenster mit:
+   cat Installation.log
+   
+Nach der Installation sollte der Rechner einen reboot ausführen.
+Falls nicht, Fehler lokalisieren und ggfs. beheben.
+  
 Die .weights - Dateien sollten über den Installationsscript geladen werden.
 Falls nicht, hier die Download-Links:
 
@@ -51,6 +48,7 @@ Die Dateien müssen unter ~/darknet/YoloWeights/ abgelegt werden.
 
 
 Wichtig: Der nvidia - Benutzer ist als sudo hochgestuft um die Installation automatisch ablaufen lassen zu können! 
-Ihr könnt das wegnehmen, indem ihr im Terminal folgendes eingeb:
+Ihr könnt die sudo - Rechte wieder wegnehmen, indem ihr im Terminal folgendes eingeb:
+   cd ~
    sudo su
    ./nvidiaNOsudoers.sh
