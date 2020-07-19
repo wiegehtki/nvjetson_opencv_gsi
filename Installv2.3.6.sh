@@ -41,7 +41,7 @@ echo $(date -u) "###############################################################
 echo $(date -u) "# Objekterkunng mit OpenCV, TensoFlow, YOLO. By WIEGEHTKI.DE                                                                        #" | tee -a  ~/Installation.log
 echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                            #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.6 (Rev a), 19.07.2020                                                                                                        #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.6 (Rev b), 19.07.2020                                                                                                        #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "01 von 30: SUDO - Rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
@@ -347,7 +347,7 @@ echo $(date -u) "...............................................................
                  sudo apt -y clean
 
 echo $(date -u) "29 von 30: Download Yolov3 und v4 - Weights"  | tee -a  ~/Installation.log
-echo $(date -u) ".........................................................................................................................>
+echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 		 cd ~
                 (ls ~/darknet/YoloWeights >> /dev/null 2>&1 && echo Verzeichnis existiert bereits) || echo Lege YoloWeights - Verzeichnis an && mkdir ~/darknet/YoloWeights
                 (ls ~/darknet/YoloWeights/yolov4.weights >> /dev/null 2>&1 && echo yolov4.weights bereits vorhanden) || echo Bitte Geduld, lade yolov4.weights && wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT" -O ~/darknet/YoloWeights/yolov4.weights && rm -rf /tmp/cookies.txt
