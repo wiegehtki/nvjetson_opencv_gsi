@@ -18,9 +18,9 @@ Zur Installation könnt ihr wie folgt vorgehen, alle Befehle im Terminal ausfüh
 1.  Einloggen und Terminal öffnen
 2.  Einstellungen->Terminal->Scrolling deaktivieren (mehr als 10000 lines möglich)
 3.  Im Terminal folgende Befehle eingeben:
-4.     cd ~
-5.     git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
-6.     cp nvjetson_opencv_gsi/*sh .
+       cd ~
+       git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
+       cp nvjetson_opencv_gsi/*sh .
 7.     sudo chmod +x *.sh
 8.     sudo su
 9.     ./nvidia2sudoers.sh
