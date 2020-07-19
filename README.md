@@ -21,12 +21,12 @@ Zur Installation könnt ihr wie folgt vorgehen, alle Befehle im Terminal ausfüh
        cd ~
        git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
        cp nvjetson_opencv_gsi/*sh .
-7.     sudo chmod +x *.sh
-8.     sudo su
-9.     ./nvidia2sudoers.sh
-10.    exit 
-11.    cd ~
-12.    ./Installv2.3.6.sh
+       sudo chmod +x *.sh
+       sudo su
+       ./nvidia2sudoers.sh
+       exit 
+       cd ~
+       ./Installv2.3.6.sh
 
 Kontrolle über ein zweites Terminalfenster mit:
    cat Installation.log
