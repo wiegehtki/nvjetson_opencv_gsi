@@ -1,11 +1,9 @@
 # nvjetson_opencv_gsi
 Installation von OpenCV und YOLOv3 + YOLOv4 auf dem NVIDIA Jetson Nano 
 
-Den passenden Video dazu findet Ihr auf https://wiegehtki.de (verfügbar ab 03.07.2020)
+Den passenden Video dazu findet Ihr auf https://wiegehtki.de
 
-Das passende Image für den Nano runter laden: https://developer.nvidia.com/jetson-nano-sd-card-image-r3231
-
-Wichtig: Es wird bewusst eine ältere Version verwendet, da mit der 04/2020 Version mein Nano etwas ruckelte.
+Das passende Image für den Nano runter laden: https://developer.nvidia.com/jetson-nano-sd-card-image
 
 Verwendet bitte als Benutzer 'nvidia' da etliche Scripte die man im Internet findet und verwenden möchte leider
 diesen Benutzer hardcodiert haben.
