@@ -38,17 +38,18 @@ echo $(date -u) "Installation.log anlegen"
                  touch ~/Installation.log
 
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
-echo $(date -u) "# Objekterkunng mit OpenCV, TensoFlow, YOLO. By WIEGEHTKI.DE                                                                      #" | tee -a  ~/Installation.log
-echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                              #" | tee -a  ~/Installation.log
+echo $(date -u) "# Objekterkunng mit OpenCV, TensoFlow, YOLO. By WIEGEHTKI.DE                                                                        #" | tee -a  ~/Installation.log
+echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                            #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.6, 17.07.2020                                                                                                                #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.6 (Rev a), 19.07.2020                                                                                                        #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-echo $(date -u) "01 von 30: SUDO - rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
+echo $(date -u) "01 von 30: SUDO - Rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
 echo $(date -u) "Hier die Befehle dazu:" | tee -a  ~/Installation.log
+echo $(date -u) "   chmod +x *sh"        | tee -a  ~/Installation.log
 echo $(date -u) "   sudo su"             | tee -a  ~/Installation.log
-echo $(date -u) "   chmod +x *.sh"       | tee -a  ~/Installation.log
 echo $(date -u) "   ./nvidia2sudoers.sh" | tee -a  ~/Installation.log
+echo $(date -u) "   exit"                | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "02 von 30: Aktuelle Installationsparameter:"  | tee -a  ~/Installation.log
 echo $(date -u) "Benutzer: '$Benutzer'"  | tee -a  ~/Installation.log
@@ -60,6 +61,7 @@ echo $(date -u) "...............................................................
                  sudo apt -y update
                  sudo apt -y dist-upgrade
                  sudo ldconfig
+                 sudo apt update --fix-missing
 
 echo $(date -u) "04 von 30: Swap-File mit 8GB anlegen, aktivieren und kontrollieren"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
