@@ -41,7 +41,7 @@ sudo jetson_clocks
        cd ~
        ./Installv2.3.6.sh
 ```
-**Wichtig:** Der Benutzer **nvidia** wird dabei in die Superuser - Gruppe aufgenommen. Der Hintergrund ist, dass die Installation lange laufen wird (ca. 6-7 Stunden) und Ihr ansonsten immer wieder das Kennwort des Benutzers eingeben müsst damit einige Installationsschritte mit **sudo** - Rechten durchgeführt werden können. Das ist nervig und kann entsprechend mit den vorgenannten Schritten vermieden werden. Ihr könnt die sudo - Rechte nach der Installation bei Bedarf wieder wegnehmen, indem ihr im Terminal folgende Befehle ausführt:
+**Wichtig:** Der Benutzer **nvidia** wird dabei in die **sudoers** (Superuser) - Gruppe aufgenommen. Der Hintergrund ist, dass die Installation lange laufen wird (ca. 6-7 Stunden) und Ihr ansonsten immer wieder das Kennwort des Benutzers eingeben müsst damit einige Installationsschritte mit **sudo** - Rechten durchgeführt werden können. Das ist nervig und kann entsprechend mit den vorgenannten Schritten vermieden werden. Ihr könnt die sudo - Rechte nach der Installation bei Bedarf wieder wegnehmen, indem ihr im Terminal folgende Befehle ausführt:
 ```
    cd ~
    sudo su
