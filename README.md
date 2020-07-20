@@ -2,6 +2,9 @@
 # Objekterkennung mit YOLO und OpenCV
 ### Installation von OpenCV 4.3 und YOLOv3 + YOLOv4 auf dem NVIDIA® Jetson™
 
+**Dokument zu Yolo(v4):** https://arxiv.org/abs/2004.10934
+**Infos zum Darknet framework:** http://pjreddie.com/darknet/
+
 Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
 * **Intro:** https://www.youtube.com/watch?v=_ndzsZ66SLQ
 * **Basiswissen Objekterkennung mit YOLO:** https://www.youtube.com/watch?v=WXuqsRGIyg4&t=1586s
