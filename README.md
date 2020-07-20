@@ -8,9 +8,9 @@ Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
 * **Technologischer Deep Dive in YOLO:** https://www.youtube.com/watch?v=KMg6BwNDqBY
 * **Installation dieses Repository's auf dem NANO:** https://www.youtube.com/watch?v=ZuGNQYPJqKk&t=2793s
 
-#### Das neueste Image (4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image oder über den NVIDIA Download Center suchen, falls bestimmte Versionen benötigt werden: https://developer.nvidia.com/embedded/downloads
+#### Das neueste Image (JP 4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image oder über den NVIDIA Download Center suchen, falls bestimmte Versionen benötigt werden: https://developer.nvidia.com/embedded/downloads
 
-#### Unterstützung u.a. für:
+#### JP 4.4. bietet Unterstützung u.a. für:
 * **CUDA 10.2**
 * **cuDNN 8.0**
 * **TensorRT 7.1.3**
