@@ -56,3 +56,16 @@ Ihr könnt die sudo - Rechte wieder wegnehmen, indem ihr im Terminal folgende Be
    sudo su
    ./nvidiaNOsudoers.sh
 ```
+
+### Bekannte Fehler und deren Behebungen
+* **NANO Image von April 2020 kann Hänger haben:** Version JP 4.4 vom 07.07.2020 oder neuer benutzen
+* **Installation läuft durch aber beim Aufruf von `./smartcam.sh` kommen Meldungen bezüglich fehlender Dateien:** Wahrscheinlich passt die CUDA- bzw. CuDNN-Versionen nicht mehr zur vorkompilierten YOLO - Installation. Folgende Befehle sollten den Fehler beheben:
+```
+    cd ~/nvjetson_opencv_gsi/obj
+    rm *o
+    cd ..
+    make
+```
+
+
+
