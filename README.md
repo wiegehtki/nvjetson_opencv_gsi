@@ -68,6 +68,6 @@ Die Dateien müssen unter **~/darknet/YoloWeights/** abgelegt werden.
     cd ..
     make
 ```
-
+* **Es wird empfohlen keinen `sudo apt -y autoremove` durchzuführen. Es gab Fälle, in denen später noch benötigte Pakete entfernt wurden und die Installation entsprechend korrigiert werden musste.**
 
 
