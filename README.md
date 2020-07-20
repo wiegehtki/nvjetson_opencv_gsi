@@ -22,28 +22,34 @@ sudo jetson_clocks
 #### Zur Installation könnt ihr wie folgt vorgehen, dazu alle Befehle im Terminal ausführen:
 
 1.  Einloggen und das **Terminal** öffnen
-2.  **Einstellungen -> Terminal -> Scrolling** deaktivieren (Limit 10000 lines ausschalten)
-3.  Im Terminal folgende Befehle eingeben:
+2.  **Einstellungen -> Terminal -> Scrolling** deaktivieren (Limit auf 10000 lines ausschalten)
+3.  Im Terminal dann folgende Befehle eingeben:
 ```
        cd ~
        git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
        cp nvjetson_opencv_gsi/*sh .
-       sudo chmod +x *.sh
+       sudo chmod +x *sh
        sudo su
        ./nvidia2sudoers.sh
        exit 
        cd ~
        ./Installv2.3.6.sh
 ```
+**Wichtig:** Der Benutzer **nvidia** wird dabei in die Superuser - Gruppe aufgenommen. Der Hintergrund ist, dass die Installation lange laufen wird (ca. 6-7 Stunden) und Ihr ansonsten immer wieder das Kennwort des Benutzers eingeben müsst damit einige Installationsschritte mit **sudo** - Rechten durchgeführt werden können. Das ist nervig und kann entsprechend mit den vorgenannten Schritten vermieden werden. Ihr könnt die sudo - Rechte nach der Installation bei Bedarf wieder wegnehmen, indem ihr im Terminal folgende Befehle ausführt:
+```
+   cd ~
+   sudo su
+   ./nvidiaNOsudoers.sh
+```
 
 #### Kontrolle des Installationsfortschritts
 
-Ein weiteres Terminalfenster öffnen und mit: `cat Installation.log` den Fortschritt der Installation kontrollieren.
+Ein weiteres Terminalfenster öffnen und mit `cat Installation.log` den Fortschritt der Installation kontrollieren.
    
 Nach der Installation sollte der Rechner automatisch einen `reboot` ausführen.
 Falls nicht, Fehler lokalisieren und ggfs. beheben.
   
-Die .weights - Dateien sollten über den Installationsscript geladen werden.
+Die **.weights - Dateien** sollten über den Installationsscript geladen werden.
 Falls nicht, hier die Download-Links:
 
 1. Download yolov3.weights: https://drive.google.com/file/d/10NEJcLeMYxhSx9WTQNHE0gfRaQaV8z8A/view?usp=sharing
@@ -51,16 +57,6 @@ Falls nicht, hier die Download-Links:
 3. Download yolov4.weights: https://drive.google.com/file/d/1Z-n8nPO8F-QfdRUFvzuSgUjgEDkym0iW/view?usp=sharing
 
 Die Dateien müssen unter **~/darknet/YoloWeights/** abgelegt werden.
-
-
-
-**Wichtig:** Der nvidia - Benutzer wird als `sudo` hochgestuft um die Installation automatisch ablaufen lassen zu können! 
-Ihr könnt die sudo - Rechte wieder wegnehmen, indem ihr im Terminal folgende Befehle ausführt:
-```
-   cd ~
-   sudo su
-   ./nvidiaNOsudoers.sh
-```
 
 
 ### Bekannte Fehler und deren Behebungen
