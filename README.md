@@ -1,17 +1,18 @@
 # nvjetson_opencv_gsi
-Installation von OpenCV und YOLOv3 + YOLOv4 auf dem NVIDIA Jetson Nano 
+### Installation von OpenCV und YOLOv3 + YOLOv4 auf dem NVIDIA Jetson Nano 
 
 Den passenden Video dazu findet Ihr auf https://wiegehtki.de
 
-Das passende Image für den Nano runter laden: https://developer.nvidia.com/jetson-nano-sd-card-image
+Das passende Image (4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image
 
-Verwendet bitte als Benutzer 'nvidia' da etliche Scripte die man im Internet findet und verwenden möchte leider
-diesen Benutzer hardcodiert haben.
+Verwendet bitte als Benutzer 'nvidia' da etliche Scripte die man im Internet findet und verwenden möchte leider diesen Benutzer hardcodiert haben.
 
-Die Geschwindigkeit des Nano kann mit folgenden Befehlen hochgesetzt werden:
+#### Die Geschwindigkeit des Nano kann mit folgenden Befehlen hochgesetzt werden:
 
+```
 sudo nvpmodel -m 0
 sudo jetson_clocks
+```
 
 Zur Installation könnt ihr wie folgt vorgehen, alle Befehle im Terminal ausführen:
 
@@ -48,8 +49,10 @@ Die Dateien müssen unter ~/darknet/YoloWeights/ abgelegt werden.
 
 
 
-Wichtig: Der nvidia - Benutzer ist als sudo hochgestuft um die Installation automatisch ablaufen lassen zu können! 
-Ihr könnt die sudo - Rechte wieder wegnehmen, indem ihr im Terminal folgendes eingeb:
+Wichtig: Der nvidia - Benutzer ist als `sudo` hochgestuft um die Installation automatisch ablaufen lassen zu können! 
+Ihr könnt die sudo - Rechte wieder wegnehmen, indem ihr im Terminal folgende Befehle ausführt:
+```
    cd ~
    sudo su
    ./nvidiaNOsudoers.sh
+```
