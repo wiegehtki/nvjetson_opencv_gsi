@@ -73,7 +73,7 @@ Die Dateien müssen unter **~/darknet/YoloWeights/** abgelegt werden.
 * **Hänger beim Image vom April 2020:** Version JP 4.4 vom 07.07.2020 oder Neuer benutzen
 * **Installation läuft durch aber beim Aufruf von `./smartcam.sh` kommen Meldungen bezüglich fehlender Dateien:** Wahrscheinlich passt die CUDA- bzw. cuDNN-Versionen nicht mehr zur vorkompilierten YOLO - Installation. Folgende Befehle sollten diesen Fehler beheben:
 ```
-    cd ~/nvjetson_opencv_gsi/obj
+    cd ~/darknet/obj
     rm *o
     cd ..
     make
