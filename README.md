@@ -5,7 +5,7 @@ Den passenden Video dazu findet Ihr auf https://wiegehtki.de
 
 Das passende Image (4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image
 
-Verwendet bitte als Benutzer 'nvidia' da etliche Scripte die man im Internet findet und verwenden möchte leider diesen Benutzer hardcodiert haben.
+Verwendet bitte als Benutzer **nvidia** da etliche Scripte die man im Internet findet und verwenden möchte leider diesen Benutzer hardcodiert haben.
 
 #### Die Geschwindigkeit des Nano kann mit folgenden Befehlen hochgesetzt werden:
 
@@ -14,7 +14,7 @@ sudo nvpmodel -m 0
 sudo jetson_clocks
 ```
 
-Zur Installation könnt ihr wie folgt vorgehen, alle Befehle im Terminal ausführen:
+#### Zur Installation könnt ihr wie folgt vorgehen, alle Befehle im Terminal ausführen:
 
 1.  Einloggen und Terminal öffnen
 2.  Einstellungen->Terminal->Scrolling deaktivieren (mehr als 10000 lines möglich)
@@ -33,7 +33,7 @@ Zur Installation könnt ihr wie folgt vorgehen, alle Befehle im Terminal ausfüh
 
 #### Kontrolle des Installationsfortschritts
 
-Tweites Terminalfenster öffnen und mit: `cat Installation.log` den Fortschritt der Installation kontrollieren.
+Ein weiteres Terminalfenster öffnen und mit: `cat Installation.log` den Fortschritt der Installation kontrollieren.
    
 Nach der Installation sollte der Rechner automatisch einen `reboot` ausführen.
 Falls nicht, Fehler lokalisieren und ggfs. beheben.
@@ -49,7 +49,7 @@ Die Dateien müssen unter ~/darknet/YoloWeights/ abgelegt werden.
 
 
 
-Wichtig: Der nvidia - Benutzer ist als `sudo` hochgestuft um die Installation automatisch ablaufen lassen zu können! 
+**Wichtig:** Der nvidia - Benutzer ist als `sudo` hochgestuft um die Installation automatisch ablaufen lassen zu können! 
 Ihr könnt die sudo - Rechte wieder wegnehmen, indem ihr im Terminal folgende Befehle ausführt:
 ```
    cd ~
