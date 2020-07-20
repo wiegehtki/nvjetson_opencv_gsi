@@ -5,7 +5,7 @@ Die passenden Videos und weitere dazu findet Ihr auf https://wiegehtki.de
 * **Intro:** https://www.youtube.com/watch?v=_ndzsZ66SLQ
 * **Basiswissen Objekterkennung mit YOLO:** https://www.youtube.com/watch?v=WXuqsRGIyg4&t=1586s
 * **Technologischer Deep Dive in YOLO:** https://www.youtube.com/watch?v=KMg6BwNDqBY
-* **Installation dieser Software auf dem YOLO:**: https://www.youtube.com/watch?v=ZuGNQYPJqKk&t=2793s
+* **Installation der Software dieses Repository auf dem YOLO:** https://www.youtube.com/watch?v=ZuGNQYPJqKk&t=2793s
 
 #### Das passende Image (4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image
 
