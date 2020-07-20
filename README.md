@@ -45,7 +45,7 @@ Falls nicht, hier die Download-Links:
 2. Download yolov3-tiny.weights: https://drive.google.com/file/d/12R3y8p-HVUZOvWHAsk2SgrM3hX3k77zt/view?usp=sharing
 3. Download yolov4.weights: https://drive.google.com/file/d/1Z-n8nPO8F-QfdRUFvzuSgUjgEDkym0iW/view?usp=sharing
 
-Die Dateien müssen unter ~/darknet/YoloWeights/ abgelegt werden.
+Die Dateien müssen unter **~/darknet/YoloWeights/** abgelegt werden.
 
 
 
