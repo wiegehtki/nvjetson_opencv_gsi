@@ -1,9 +1,13 @@
 # nvjetson_opencv_gsi
 ### Installation von OpenCV 4.3 und YOLOv3 + YOLOv4 auf dem NVIDIA Jetson Nano 
 
-Den passenden Video dazu findet Ihr auf https://wiegehtki.de
+Die passenden Videos und weitere dazu findet Ihr auf https://wiegehtki.de
+* **Intro:** https://www.youtube.com/watch?v=_ndzsZ66SLQ
+* **Basiswissen Objekterkennung mit YOLO:** https://www.youtube.com/watch?v=WXuqsRGIyg4&t=1586s
+* **Technologischer Deep Dive in YOLO:** https://www.youtube.com/watch?v=KMg6BwNDqBY
+* **Installation dieser Software auf dem YOLO:**: https://www.youtube.com/watch?v=ZuGNQYPJqKk&t=2793s
 
-Das passende Image (4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image
+#### Das passende Image (4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image
 
 Verwendet bitte als Benutzer **nvidia** da etliche Scripte die man im Internet findet und verwenden möchte leider diesen Benutzer hardcodiert haben.
 
