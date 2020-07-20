@@ -1,5 +1,5 @@
 # nvjetson_opencv_gsi
-### Installation von OpenCV und YOLOv3 + YOLOv4 auf dem NVIDIA Jetson Nano 
+### Installation von OpenCV 4.3 und YOLOv3 + YOLOv4 auf dem NVIDIA Jetson Nano 
 
 Den passenden Video dazu findet Ihr auf https://wiegehtki.de
 
@@ -49,7 +49,7 @@ Die Dateien müssen unter **~/darknet/YoloWeights/** abgelegt werden.
 
 
 
-**Wichtig:** Der nvidia - Benutzer ist als `sudo` hochgestuft um die Installation automatisch ablaufen lassen zu können! 
+**Wichtig:** Der nvidia - Benutzer wird als `sudo` hochgestuft um die Installation automatisch ablaufen lassen zu können! 
 Ihr könnt die sudo - Rechte wieder wegnehmen, indem ihr im Terminal folgende Befehle ausführt:
 ```
    cd ~
@@ -57,9 +57,10 @@ Ihr könnt die sudo - Rechte wieder wegnehmen, indem ihr im Terminal folgende Be
    ./nvidiaNOsudoers.sh
 ```
 
+
 ### Bekannte Fehler und deren Behebungen
-* **NANO Image von April 2020 kann Hänger haben:** Version JP 4.4 vom 07.07.2020 oder neuer benutzen
-* **Installation läuft durch aber beim Aufruf von `./smartcam.sh` kommen Meldungen bezüglich fehlender Dateien:** Wahrscheinlich passt die CUDA- bzw. CuDNN-Versionen nicht mehr zur vorkompilierten YOLO - Installation. Folgende Befehle sollten den Fehler beheben:
+* **NANO Image von April 2020 kann Hänger haben:** Version JP 4.4 vom 07.07.2020 oder Neuer benutzen
+* **Installation läuft durch aber beim Aufruf von `./smartcam.sh` kommen Meldungen bezüglich fehlender Dateien:** Wahrscheinlich passt die CUDA- bzw. CuDNN-Versionen nicht mehr zur vorkompilierten YOLO - Installation. Folgende Befehle sollten diesen Fehler beheben:
 ```
     cd ~/nvjetson_opencv_gsi/obj
     rm *o
