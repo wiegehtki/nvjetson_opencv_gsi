@@ -16,7 +16,7 @@ Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
 * **TensorRT 7.1.3**
 
 
-Verwendet bitte als Benutzer **nvidia** da leider etliche Scripte, die man im Internet findet und verwenden möchte, diesen Benutzer hardcodiert haben.
+Verwendet bei der Installation bitte als Benutzer **nvidia** da leider etliche Scripte, die man im Internet findet und verwenden möchte, diesen Benutzer hardcodiert haben. Alternativ müsst Ihr solche Software u.U. debuggen.
 
 #### Die Geschwindigkeit des Nano kann mit folgenden Befehlen hochgesetzt werden:
 
