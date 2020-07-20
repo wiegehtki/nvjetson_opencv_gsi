@@ -4,6 +4,7 @@
 
 * Dokument zu Yolo(v4): https://arxiv.org/abs/2004.10934
 * Infos zum Darknet framework: http://pjreddie.com/darknet/
+* Infos zu OpenCV findet Ihr hier: https://opencv.org/
 
 Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
 * **Intro:** https://www.youtube.com/watch?v=_ndzsZ66SLQ
