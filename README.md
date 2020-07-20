@@ -8,7 +8,12 @@ Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
 * **Technologischer Deep Dive in YOLO:** https://www.youtube.com/watch?v=KMg6BwNDqBY
 * **Installation dieses Repository's auf dem NANO:** https://www.youtube.com/watch?v=ZuGNQYPJqKk&t=2793s
 
-#### Das passende Image (4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image
+#### Das passende Image (4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image 
+#### Unterstützung u.a. für:
+* **CUDA 10.2**
+* **cuDNN 8.0**
+* **TensorRT 7.1.3**
+
 
 Verwendet bitte als Benutzer **nvidia** da leider etliche Scripte, die man im Internet findet und verwenden möchte, diesen Benutzer hardcodiert haben.
 
@@ -61,7 +66,7 @@ Die Dateien müssen unter **~/darknet/YoloWeights/** abgelegt werden.
 
 ### Bekannte Fehler und deren Behebungen
 * **NANO Image von April 2020 kann Hänger haben:** Version JP 4.4 vom 07.07.2020 oder Neuer benutzen
-* **Installation läuft durch aber beim Aufruf von `./smartcam.sh` kommen Meldungen bezüglich fehlender Dateien:** Wahrscheinlich passt die CUDA- bzw. CuDNN-Versionen nicht mehr zur vorkompilierten YOLO - Installation. Folgende Befehle sollten diesen Fehler beheben:
+* **Installation läuft durch aber beim Aufruf von `./smartcam.sh` kommen Meldungen bezüglich fehlender Dateien:** Wahrscheinlich passt die CUDA- bzw. cuDNN-Versionen nicht mehr zur vorkompilierten YOLO - Installation. Folgende Befehle sollten diesen Fehler beheben:
 ```
     cd ~/nvjetson_opencv_gsi/obj
     rm *o
