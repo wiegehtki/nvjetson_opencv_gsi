@@ -1,4 +1,5 @@
-# nvjetson_opencv_gsi - Objekterkennung mit YOLO und OpenCV
+# nvjetson_opencv_gsi 
+# Objekterkennung mit YOLO und OpenCV
 ### Installation von OpenCV 4.3 und YOLOv3 + YOLOv4 auf dem NVIDIA Jetson Nano 
 
 Die passenden Videos und weitere dazu findet Ihr auf https://wiegehtki.de
