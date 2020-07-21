@@ -13,11 +13,6 @@ fi
 #Debug Modus: -x = an, +x = aus
 set +x
 
-# Stopp bei Fehler an (-e)
-# Wird vor der Ausführung von eval bashrc ausgeschaltet da Shell-In-Shell return's einen Fehler erzeugen (können) der bei der Installation aber nicht relevant ist
-set -e
-
-
 # Name der virtuellen Umgebung, kann nach persönlichem Geschmack problemlos geändert werden
 VirtEnv="tf15cv4"
 
@@ -31,6 +26,15 @@ export PIP_DEFAULT_TIMEOUT=100
 
 rm -rf ~/nvjetson_opencv_gsi
 
+# Highspeed - Modus setzen
+grep -q Xavier /proc/device-tree/model && sudo nvpmodel -m 2
+grep -q Nano /proc/device-tree/model   && sudo nvpmodel -m 0
+sudo jetson_clocks
+
+# Stopp bei Fehler an (-e)
+# Wird vor der Ausführung von eval bashrc ausgeschaltet da Shell-In-Shell return's einen Fehler erzeugen (können) der bei der Installation aber nicht relevant ist
+set -e
+
 echo $(date -u) "Test auf bestehende Installation.log"
                  test -f ~/Installation.log && rm ~/Installation.log
 
@@ -41,7 +45,7 @@ echo $(date -u) "###############################################################
 echo $(date -u) "# Objekterkunng mit OpenCV, TensoFlow, YOLO. By WIEGEHTKI.DE                                                                        #" | tee -a  ~/Installation.log
 echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                            #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.6 (Rev b), 19.07.2020                                                                                                        #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.6 (Rev c), 21.07.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX                                           #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "01 von 30: SUDO - Rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
@@ -51,11 +55,11 @@ echo $(date -u) "   sudo su"             | tee -a  ~/Installation.log
 echo $(date -u) "   ./nvidia2sudoers.sh" | tee -a  ~/Installation.log
 echo $(date -u) "   exit"                | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-echo $(date -u) "02 von 30: Aktuelle Installationsparameter:"  | tee -a  ~/Installation.log
-echo $(date -u) "Benutzer: '$Benutzer'"  | tee -a  ~/Installation.log
-echo $(date -u) "Virtual Environment Wrapper: '$VirtEnv'"  | tee -a  ~/Installation.log
-echo $(date -u) "Compilerflags: CFLAGS:'$CFLAGS' CPPFLAGS:'$CPPFLAGS' CXXFLAGS:'$CXXFLAGS'"  | tee -a  ~/Installation.log
-
+echo $(date -u) "02 von 30: Aktuelle Installationsparameter:" | tee -a  ~/Installation.log
+echo $(date -u) "Benutzer: '$Benutzer'" | tee -a  ~/Installation.log
+echo $(date -u) "Virtual Environment Wrapper: '$VirtEnv'" | tee -a  ~/Installation.log
+echo $(date -u) "Compilerflags: CFLAGS:'$CFLAGS' CPPFLAGS:'$CPPFLAGS' CXXFLAGS:'$CXXFLAGS'" | tee -a  ~/Installation.log
+echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "03 von 30: Systemupdate"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  sudo apt -y update
@@ -366,6 +370,13 @@ echo $(date -u) "Bitte als root den Script nvidiaNOsudoers.sh ausführen!"   | t
 echo $(date -u) "Bitte als root den Script Finalisieren.sh ausführen!"      | tee -a  ~/Installation.log
 echo $(date -u) "Bei Problemen mit YOLO: Terminal aufrufen, in darknet wechseln und make aufrufen."   | tee -a  ~/Installation.log
 echo $(date -u) "================================================================================="   | tee -a  ~/Installation.log
+                 # Stopp bei Fehler aus (+e)
+                 set +e
+
+                 # Performance zurück auf Standard
+                 grep -q Xavier /proc/device-tree/model && sudo nvpmodel -m 3
+                 grep -q Nano /proc/device-tree/model   && sudo nvpmodel -m 1
+                 sudo nvpmodel -q
                  sudo reboot
 
 
