@@ -15,19 +15,19 @@ Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
 
 #### Das neueste Image (JP 4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image oder über den NVIDIA® Download Center suchen, falls bestimmte Versionen benötigt werden: https://developer.nvidia.com/embedded/downloads
 
-#### Erweitertes Installationsscript Installv2.3.6.sh (rev c)
-* **Die Plattform Nano bzw. Jetson wird jetzt automatisch erkannt.** 
  
 #### JP 4.4. bietet Unterstützung u.a. für:
 * **CUDA 10.2**
 * **cuDNN 8.0**
 * **TensorRT 7.1.3**
 
+#### Erweitertes Installationsscript Installv2.3.6.sh (rev c)
+* **Die Plattform Nano bzw. Jetson wird jetzt automatisch erkannt.** 
 
 Verwendet bei der Installation bitte als Benutzer **nvidia** da leider etliche Scripte, die man im Internet findet und verwenden möchte, diesen Benutzer hardcodiert haben. Alternativ müsst Ihr solche 3rd Party - Scripte debuggen und anpassen.
 
-#### Die Geschwindigkeit Befehlen hochgesetzt werden:
-# NVIDIA® Jetson™ Nano
+#### Die Geschwindigkeit kann wie folgt hoch gesetzt werden:
+#### NVIDIA® Jetson™ Nano
 ```
 sudo nvpmodel -m 0
 sudo jetson_clocks
@@ -77,6 +77,9 @@ Falls nicht, hier die Download-Links:
 3. Download yolov4.weights: https://drive.google.com/file/d/1Z-n8nPO8F-QfdRUFvzuSgUjgEDkym0iW/view?usp=sharing
 
 Die Dateien müssen unter **~/darknet/YoloWeights/** abgelegt werden.
+
+### Optimierungen
+**Empfehlung:** In der App auf dem Smartphone sollte die FPS - Rate auf einen Wert gestellt werden, welcher der Performance der Plattform entspricht. Dazu einfach mit 30 FPS testen und im Terminal die FpS - Rate kontrollieren. Dann den Wert entsprechend anpassen. Wenn beispielsweise im Terminal 9.1 FPS beim Xavier angezeigt werden, dann den Wert in der App auf 9 setzen um die Kommunikation reibungslos laufen zu lassen.
 
 
 ### Bekannte Fehler und deren Behebungen
