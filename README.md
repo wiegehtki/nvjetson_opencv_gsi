@@ -9,7 +9,7 @@
 
 #### Um den Videostream per Smartphone an den NVIDIA® Jetson™ zu übertragen, wurde die folgende App verwendet:
 * **IP Webcam** https://play.google.com/store/apps/details?id=com.pas.webcam.pro&hl=de
-* Natürlich können viele andere Apps und andere Plattformen verwendet werden, wenn diese einen Zugriff per IP und HTTP erlauben.
+* Natürlich können auch andere Apps und Plattformen (Android, iOS, ...) verwendet werden, wenn diese einen Zugriff auf den Videostream der Kamera per IP und HTTP erlauben.
 
 #### Videos zu diesem Projekt (und weitere) findet Ihr auf https://wiegehtki.de
 * **Intro:** https://www.youtube.com/watch?v=_ndzsZ66SLQ
