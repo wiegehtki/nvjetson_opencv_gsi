@@ -27,6 +27,7 @@ export PIP_DEFAULT_TIMEOUT=100
 rm -rf ~/nvjetson_opencv_gsi
 
 # Highspeed - Modus setzen
+grep -q Jetson-AGX /proc/device-tree/model && sudo nvpmodel -m 3
 grep -q Xavier /proc/device-tree/model && sudo nvpmodel -m 2
 grep -q Nano /proc/device-tree/model   && sudo nvpmodel -m 0
 sudo jetson_clocks
@@ -45,7 +46,7 @@ echo $(date -u) "###############################################################
 echo $(date -u) "# Objekterkunng mit OpenCV, TensoFlow, YOLO. By WIEGEHTKI.DE                                                                        #" | tee -a  ~/Installation.log
 echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                            #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.6 (Rev c), 21.07.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX                                           #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.6 (Rev d), 21.07.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX                                           #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "01 von 30: SUDO - Rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
@@ -374,8 +375,9 @@ echo $(date -u) "===============================================================
                  set +e
 
                  # Performance zurück auf Standard
-                 grep -q Xavier /proc/device-tree/model && sudo nvpmodel -m 3
-                 grep -q Nano /proc/device-tree/model   && sudo nvpmodel -m 1
+                 grep -q Jetson-AGX /proc/device-tree/model && sudo nvpmodel -m 1
+                 grep -q Xavier /proc/device-tree/model     && sudo nvpmodel -m 3
+                 grep -q Nano /proc/device-tree/model       && sudo nvpmodel -m 1
                  sudo nvpmodel -q
                  sudo reboot
 
