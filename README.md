@@ -8,7 +8,7 @@
 * Infos zu OpenCV findet Ihr hier: https://opencv.org/
 
 #### Um den Videostream per Smartphone an den Jetson zu übertragen, wurde die folgende App verwendet:
-* **IP Webcam ** https://play.google.com/store/apps/details?id=com.pas.webcam.pro&hl=de
+* **IP Webcam** Link: https://play.google.com/store/apps/details?id=com.pas.webcam.pro&hl=de
 * Natürlich können viele andere Apps und andere Plattformen verwendet werden, wenn diese einen Zugriff per IP und HTTP erlauben.
 
 Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
