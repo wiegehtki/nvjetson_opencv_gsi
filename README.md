@@ -1,6 +1,7 @@
 # nvjetson_opencv_gsi 
 # Objekterkennung mit YOLO und OpenCV
 ### Installation von OpenCV 4.3 und YOLOv3 + YOLOv4 auf dem NVIDIA® Jetson™
+### Unterstützt NVIDIA® Jetson™ Nano und NVIDIA® Jetson™ Xavier NX
 
 * Dokument zu Yolo(v4): https://arxiv.org/abs/2004.10934
 * Infos zum Darknet framework: http://pjreddie.com/darknet/
