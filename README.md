@@ -7,6 +7,10 @@
 * Infos zum Darknet framework: http://pjreddie.com/darknet/
 * Infos zu OpenCV findet Ihr hier: https://opencv.org/
 
+#### Um den Videostream per Smartphone an den Jetson zu übertragen, wurde die folgende App verwendet:
+* **IP Webcam ** https://play.google.com/store/apps/details?id=com.pas.webcam.pro&hl=de
+* Natürlich können viele andere Apps und andere Plattformen verwendet werden, wenn diese einen Zugriff per IP und HTTP erlauben.
+
 Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
 * **Intro:** https://www.youtube.com/watch?v=_ndzsZ66SLQ
 * **Basiswissen Objekterkennung mit YOLO:** https://www.youtube.com/watch?v=WXuqsRGIyg4&t=1586s
@@ -33,7 +37,7 @@ sudo nvpmodel -m 0
 sudo jetson_clocks
 ```
 
-# NVIDIA® Jetson™ Xavier
+#### NVIDIA® Jetson™ Xavier
 ```
 sudo nvpmodel -m 2
 sudo jetson_clocks
@@ -79,7 +83,7 @@ Falls nicht, hier die Download-Links:
 Die Dateien müssen unter **~/darknet/YoloWeights/** abgelegt werden.
 
 ### Optimierungen
-**Empfehlung:** In der App auf dem Smartphone sollte die FPS - Rate auf einen Wert gestellt werden, welcher der Performance der Plattform entspricht. Dazu einfach mit 30 FPS testen und im Terminal die FpS - Rate kontrollieren. Dann den Wert entsprechend anpassen. Wenn beispielsweise im Terminal 9.1 FPS beim Xavier angezeigt werden, dann den Wert in der App auf 9 setzen um die Kommunikation reibungslos laufen zu lassen.
+**Empfehlung:** In der App auf dem Smartphone sollte die FPS - Rate auf einen Wert gestellt werden, welcher der Performance der Plattform entspricht. Dazu einfach mit 30 FPS testen und im Terminal die FPS - Rate kontrollieren. Dann den Wert entsprechend anpassen. Wenn beispielsweise im Terminal 9.1 FPS beim Xavier angezeigt werden, dann den Wert in der App auf 9 setzen um die Kommunikation reibungslos laufen zu lassen.
 
 
 ### Bekannte Fehler und deren Behebungen
