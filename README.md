@@ -14,7 +14,9 @@ Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
 * **Installation dieses Repository's auf dem NANO:** https://www.youtube.com/watch?v=ZuGNQYPJqKk&t=2793s
 
 #### Das neueste Image (JP 4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image oder über den NVIDIA® Download Center suchen, falls bestimmte Versionen benötigt werden: https://developer.nvidia.com/embedded/downloads
-* **Die Plattform Nano bzw. Jetson wird automatisch erkannt.** 
+
+#### Erweitertes Installationsscript Installv2.3.6.sh (rev c)
+* **Die Plattform Nano bzw. Jetson wird jetzt automatisch erkannt.** 
  
 #### JP 4.4. bietet Unterstützung u.a. für:
 * **CUDA 10.2**
@@ -24,10 +26,16 @@ Die passenden Videos dazu (und weitere) findet Ihr auf https://wiegehtki.de
 
 Verwendet bei der Installation bitte als Benutzer **nvidia** da leider etliche Scripte, die man im Internet findet und verwenden möchte, diesen Benutzer hardcodiert haben. Alternativ müsst Ihr solche 3rd Party - Scripte debuggen und anpassen.
 
-#### Die Geschwindigkeit des Nano kann mit folgenden Befehlen hochgesetzt werden:
-
+#### Die Geschwindigkeit Befehlen hochgesetzt werden:
+# NVIDIA® Jetson™ Nano
 ```
 sudo nvpmodel -m 0
+sudo jetson_clocks
+```
+
+# NVIDIA® Jetson™ Xavier
+```
+sudo nvpmodel -m 2
 sudo jetson_clocks
 ```
 
