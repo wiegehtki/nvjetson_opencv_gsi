@@ -46,7 +46,7 @@ echo $(date -u) "###############################################################
 echo $(date -u) "# Objekterkunng mit OpenCV, TensoFlow, YOLO. By WIEGEHTKI.DE                                                                        #" | tee -a  ~/Installation.log
 echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                            #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.6 (Rev d), 21.07.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX                                           #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.6 (Rev e), 21.07.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX, Beta für AGX                             #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "01 von 30: SUDO - Rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
@@ -112,6 +112,8 @@ echo $(date -u) "...............................................................
 		 chmod +x ~/nvjetson_opencv_gsi/*
                  mv ~/nvjetson_opencv_gsi/darknet.repo ~/darknet
 		 mv ~/nvjetson_opencv_gsi/smartcam.sh  ~/darknet/
+		 cp -r ~/nvjetson_opencv_gsi/Objekterkennung/Videos_Ausgabe ~/darknet/
+		 cp -r ~/nvjetson_opencv_gsi/Objekterkennung/Videos_Eingabe ~/darknet/
 		 chmod +x ~/darknet/*
 
 echo $(date -u) "11 von 30: PreCompiler: cmake 3.17.1"  | tee -a  ~/Installation.log
