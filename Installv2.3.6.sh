@@ -46,7 +46,7 @@ echo $(date -u) "###############################################################
 echo $(date -u) "# Objekterkennung mit OpenCV, TensorFlow, YOLO. By WIEGEHTKI.DE                                                                     #" | tee -a  ~/Installation.log
 echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                            #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.6 (Rev f), 25.11.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX, Beta für AGX                             #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.6 (Rev g), 25.11.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX, Beta für AGX                             #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "01 von 30: SUDO - Rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
@@ -63,6 +63,7 @@ echo $(date -u) "Compilerflags: CFLAGS:'$CFLAGS' CPPFLAGS:'$CPPFLAGS' CXXFLAGS:'
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "03 von 30: Systemupdate"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
+                 sudo add-apt-repository -y ppa:deadsnakes/ppa
                  sudo apt -y update
                  sudo apt -y dist-upgrade
                  sudo ldconfig
@@ -82,8 +83,13 @@ echo $(date -u) "...............................................................
                  sudo apt -y install git-all doxygen build-essential nghttp2 libnghttp2-dev libssl-dev
                  sudo apt -y install libatlas-base-dev gfortran
                  sudo apt -y install libhdf5-serial-dev hdf5-tools
-                 sudo apt -y install python3.8
+
+echo $(date -u) "05.1 von 30: Python 3.9 installieren und de-aktivieren der alten Version"  | tee -a  ~/Installation.log
+echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
+                 sudo apt -y install python3.9
                  sudo apt -y install python3-dev locate
+                 sudo rm /usr/bin/python3
+                 sudo ln -s /usr/bin/python3.9 /usr/bin/python3
 
 echo $(date -u) "06 von 30: Pakete für SciPy"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
