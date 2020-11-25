@@ -63,7 +63,7 @@ echo $(date -u) "Compilerflags: CFLAGS:'$CFLAGS' CPPFLAGS:'$CPPFLAGS' CXXFLAGS:'
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "03 von 30: Systemupdate"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 sudo add-apt-repository -y ppa:deadsnakes/ppa
+#                 sudo add-apt-repository -y ppa:deadsnakes/ppa
                  sudo apt -y update
                  sudo apt -y dist-upgrade
                  sudo ldconfig
@@ -86,10 +86,10 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "05.1 von 30: Python 3.9 installieren und de-aktivieren der alten Version"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 sudo apt -y install python3.9
+ #                sudo apt -y install python3.9
                  sudo apt -y install python3-dev locate
-                 sudo rm /usr/bin/python3
-                 sudo ln -s /usr/bin/python3.9 /usr/bin/python3
+  #               sudo rm /usr/bin/python3
+   #              sudo ln -s /usr/bin/python3.9 /usr/bin/python3
 
 echo $(date -u) "06 von 30: Pakete für SciPy"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
