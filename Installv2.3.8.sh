@@ -86,8 +86,8 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "05.1 von 30: Python 3.9 installieren und de-aktivieren der alten Version"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 sudo apt -y install python3.9
-                 sudo apt -y install python3-dev locate
+                 sudo apt -y install python3.6
+                 sudo apt -y install python3-dev locate python3-venv binfmt-support
                  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
                  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
                  sudo rm /usr/bin/python3
@@ -128,14 +128,14 @@ echo $(date -u) "...............................................................
 echo $(date -u) "11 von 30: PreCompiler: cmake 3.19.0"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  sudo apt -y purge cmake
-                 wget http://www.cmake.org/files/v3.19/cmake-3.19.0.tar.gz
-                 tar xpvf cmake-3.19.0.tar.gz
-                 cd   ~/cmake-3.19.0/
+                 wget http://www.cmake.org/files/v3.19/cmake-3.19.1.tar.gz
+                 tar xpvf cmake-3.19.1.tar.gz
+                 cd   ~/cmake-3.19.1/
                  ./bootstrap
                  make   -j4
 
-                 echo 'export PATH=/home/'$Benutzer'/cmake-3.19.0/bin/:/home/'$Benutzer'/.local/bin/:$PATH' >> ~/.bashrc
-                 export PATH=/home/$Benutzer/cmake-3.19.0/bin/:/home/$Benutzer/.local/bin/:$PATH
+                 echo 'export PATH=/home/'$Benutzer'/cmake-3.19.1/bin/:/home/'$Benutzer'/.local/bin/:$PATH' >> ~/.bashrc
+                 export PATH=/home/$Benutzer/cmake-3.19.1/bin/:/home/$Benutzer/.local/bin/:$PATH
                  set +e
                  eval "$(cat ~/.bashrc | tail -n +1)"
                  set -e
@@ -218,9 +218,11 @@ echo $(date -u) "18 von 30: Tensorflow+Keras, NumPy/SciPy installieren"  | tee -
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  sudo apt -y install cython-doc
                  sudo apt -y install cython3
-                 pip3 install -U numpy==1.18.4
-                 pip3 install -U cython==0.29.17
-                 pip3 install -U pycocotools==2.0.0
+                 pip3 install -U numpy==1.19.4
+                 pip3 install -U cython==0.29.21
+                 sudo apt -y install cython
+                 sudo apt -y install python3-matplotlib
+                 pip3 install -U pycocotools==2.0.2
                  pip3 install -U scipy==1.4.1
                  pip3 install -U keras==2.3.1
                  pip3 install -U keras_preprocessing==1.1.0
