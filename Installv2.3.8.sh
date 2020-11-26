@@ -43,10 +43,10 @@ echo $(date -u) "Installation.log anlegen"
                  touch ~/Installation.log
 
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
-echo $(date -u) "# Objekterkunng mit OpenCV, TensoFlow, YOLO. By WIEGEHTKI.DE                                                                        #" | tee -a  ~/Installation.log
+echo $(date -u) "# Objekterkennung mit OpenCV, TensorFlow, YOLO. By WIEGEHTKI.DE                                                                     #" | tee -a  ~/Installation.log
 echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                            #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.6 (Rev e), 21.07.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX, Beta für AGX                             #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.8 (Rev g), 26.11.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX, Beta für AGX                             #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "01 von 30: SUDO - Rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
@@ -63,6 +63,7 @@ echo $(date -u) "Compilerflags: CFLAGS:'$CFLAGS' CPPFLAGS:'$CPPFLAGS' CXXFLAGS:'
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "03 von 30: Systemupdate"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
+                 #sudo add-apt-repository -y ppa:deadsnakes/ppa
                  sudo apt -y update
                  sudo apt -y dist-upgrade
                  sudo ldconfig
@@ -82,7 +83,15 @@ echo $(date -u) "...............................................................
                  sudo apt -y install git-all doxygen build-essential nghttp2 libnghttp2-dev libssl-dev
                  sudo apt -y install libatlas-base-dev gfortran
                  sudo apt -y install libhdf5-serial-dev hdf5-tools
+
+echo $(date -u) "05.1 von 30: Python 3.9 installieren und de-aktivieren der alten Version"  | tee -a  ~/Installation.log
+echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
+                 sudo apt -y install python3.9
                  sudo apt -y install python3-dev locate
+                 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+                 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
+                 sudo rm /usr/bin/python3
+                 sudo ln -s /usr/bin/python3.8 /usr/bin/python3
 
 echo $(date -u) "06 von 30: Pakete für SciPy"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -116,17 +125,17 @@ echo $(date -u) "...............................................................
 		 cp -r ~/nvjetson_opencv_gsi/Objekterkennung/Videos_Eingabe ~/darknet/
 		 chmod +x ~/darknet/*
 
-echo $(date -u) "11 von 30: PreCompiler: cmake 3.17.1"  | tee -a  ~/Installation.log
+echo $(date -u) "11 von 30: PreCompiler: cmake 3.19.0"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  sudo apt -y purge cmake
-                 wget http://www.cmake.org/files/v3.17/cmake-3.17.1.tar.gz
-                 tar xpvf cmake-3.17.1.tar.gz
-                 cd   ~/cmake-3.17.1/
+                 wget http://www.cmake.org/files/v3.19/cmake-3.19.0.tar.gz
+                 tar xpvf cmake-3.19.0.tar.gz
+                 cd   ~/cmake-3.19.0/
                  ./bootstrap
                  make   -j4
 
-                 echo 'export PATH=/home/'$Benutzer'/cmake-3.17.1/bin/:/home/'$Benutzer'/.local/bin/:$PATH' >> ~/.bashrc
-                 export PATH=/home/$Benutzer/cmake-3.17.1/bin/:/home/$Benutzer/.local/bin/:$PATH
+                 echo 'export PATH=/home/'$Benutzer'/cmake-3.19.0/bin/:/home/'$Benutzer'/.local/bin/:$PATH' >> ~/.bashrc
+                 export PATH=/home/$Benutzer/cmake-3.19.0/bin/:/home/$Benutzer/.local/bin/:$PATH
                  set +e
                  eval "$(cat ~/.bashrc | tail -n +1)"
                  set -e
