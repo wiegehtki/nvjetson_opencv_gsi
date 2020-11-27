@@ -9,7 +9,7 @@ if [ "$(whoami)" != $Benutzer ]; then
         echo $(date -u) "Script muss als Benutzer $Benutzer ausgeführt werden!"
         exit 255
 fi
-
+ 
 #Debug Modus: -x = an, +x = aus
 set +x
 
