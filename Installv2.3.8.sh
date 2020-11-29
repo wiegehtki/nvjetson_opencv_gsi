@@ -46,7 +46,7 @@ echo $(date -u) "###############################################################
 echo $(date -u) "# Objekterkennung mit OpenCV, TensorFlow, YOLO. By WIEGEHTKI.DE                                                                     #" | tee -a  ~/Installation.log
 echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                            #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.7 (Rev g), 26.11.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX, Beta für AGX                             #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.8 (Rev g), 29.11.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX, Beta für AGX                             #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "01 von 30: SUDO - Rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
@@ -86,12 +86,12 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "05.1 von 30: Python 3.7 installieren und de-aktivieren der alten Version"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 sudo apt -y install python3.7
-                 sudo apt -y install python3-dev locate python3-venv python3.7-dev python3.7-venv binfmt-support
-                 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
-                 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
-                 sudo rm /usr/bin/python3
-                 sudo ln -s /usr/bin/python3.7 /usr/bin/python3
+                 #sudo apt -y install python3.7
+                 sudo apt -y install python3-dev locate python3-venv python3-dev binfmt-support
+                 #sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+                 #sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+                 #sudo rm /usr/bin/python3
+                 #sudo ln -s /usr/bin/python3.7 /usr/bin/python3
 
 echo $(date -u) "06 von 30: Pakete für SciPy"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -150,12 +150,12 @@ echo $(date -u) "...............................................................
                  sudo -H python3 get-pip.py
                  rm get-pip.py
                  sudo -H apt -y install python3-pip
-                 sudo -H pip3.7 install -U pip testresources setuptools
+                 sudo -H pip3 install -U pip testresources setuptools
 
 echo $(date -u) "14 von 30: Virtuelle Umgebung installieren, anpassen und aktivieren"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cd ~
-                 sudo -H pip3.7 install virtualenv virtualenvwrapper
+                 sudo -H pip3 install virtualenv virtualenvwrapper
                  export WORKON_HOME=$HOME/.virtualenvs
                  export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
@@ -218,24 +218,24 @@ echo $(date -u) "18 von 30: Tensorflow+Keras, NumPy/SciPy installieren"  | tee -
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  sudo apt -y install cython-doc
                  sudo apt -y install cython3
-                 pip3.7 install -U numpy==1.19.4
-                 pip3.7 install -U cython==0.29.21
+                 pip3 install -U numpy==1.19.4
+                 pip3 install -U cython==0.29.21
                  sudo apt -y install cython
                  sudo apt -y install python3-matplotlib
-                 pip3.7 install -U pycocotools==2.0.2
-                 pip3.7 install -U scipy==1.4.1
-                 pip3.7 install -U keras==2.3.1
-                 pip3.7 install -U keras_preprocessing==1.1.0
-                 pip3.7 install -U keras_applications==1.0.8
-                 pip3.7 install -U future==0.18.2
-                 pip3.7 install -U grpcio==1.28.1 absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 mock==4.0.2 requests==2.23.0 gast==0.2.2 
-                 pip3.7 install -U h5py==2.10.0 astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0 setuptools==46.1.3 testresources==2.0.1 
-                 pip3.7 install -U pybind11==2.5.0
+                 pip3 install -U pycocotools==2.0.2
+                 pip3 install -U scipy==1.4.1
+                 pip3 install -U keras==2.3.1
+                 pip3 install -U keras_preprocessing==1.1.0
+                 pip3 install -U keras_applications==1.0.8
+                 pip3 install -U future==0.18.2
+                 pip3 install -U grpcio==1.28.1 absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 mock==4.0.2 requests==2.23.0 gast==0.2.2 
+                 pip3 install -U h5py==2.10.0 astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0 setuptools==46.1.3 testresources==2.0.1 
+                 pip3 install -U pybind11==2.5.0
                  sudo apt -y install liblapack-dev
                  export CUDA_VISIBLE_DEVICES=0
                  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/lib
                  export PATH=$PATH:/usr/local/cuda/bin
-                 pip3.7 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow-gpu==1.15.0+nv20.1
+                 pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow-gpu==1.15.0+nv20.1
 
                  echo 'export CUDA_VISIBLE_DEVICES=0' >> ~/.bashrc
                  echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/lib' >> ~/.bashrc
@@ -331,9 +331,9 @@ echo $(date -u) "24 von 30: Weitere Bibliotheken installieren (nice2have)"  | te
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cd ~
 
-                 pip3.7 install -U matplotlib==3.2.1 scikit-learn
+                 pip3 install -U matplotlib==3.2.1 scikit-learn
                  sudo apt -y install python3-tk
-                 pip3.7 install pillow==7.1.2 imutils==0.5.3 
+                 pip3 install pillow==7.1.2 imutils==0.5.3 
 
 echo $(date -u) "25 von 30: Installation von dlib und face recognition"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -350,13 +350,13 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "26 von 30: Kleiner WEBServer, Jupyter Notebook und Systemtoolsmachen die Arbeit einfacher"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 pip3.7 install flask jupyter
-                 sudo -H pip3.7 install -U jetson-stats
+                 pip3 install flask jupyter
+                 sudo -H pip3 install -U jetson-stats
                  cd ~
 
 echo $(date -u) "27 von 30: XML-Tool und Fortschrittsanzeige"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 pip3.7 install -U lxml progressbar2
+                 pip3 install -U lxml progressbar2
 
 echo $(date -u) "28 von 30: SwapFile auf 2.0GB pro Kern setzen"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
