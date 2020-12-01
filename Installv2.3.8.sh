@@ -5,6 +5,11 @@
 Benutzer="nvidia"
 
 
+# Hier kann die Tensorflow - Version gesetzt werden, welche installiert werden soll.
+# 1 bedeutet: Letzte aktuelle Version 1.x.x. wird installiert.
+# 2 bedeutet: Letzte aktuelle Version 2.x.x. wird installiert.
+TensorFlow="1"
+
 if [ "$(whoami)" != $Benutzer ]; then
         echo $(date -u) "Script muss als Benutzer $Benutzer ausgeführt werden!"
         exit 255
@@ -78,22 +83,14 @@ echo $(date -u) "...............................................................
                  sudo swapon /swapfile
                  sudo swapon --show
 
-echo $(date -u) "05 von 30: Systemwerkzeuge, Editor, Tools"  | tee -a  ~/Installation.log
+echo $(date -u) "05 von 30: Systemwerkzeuge, Editor, Tools, Erweiterungen"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  sudo apt -y install git-all doxygen build-essential nghttp2 libnghttp2-dev libssl-dev apt-utils
                  sudo apt -y install libatlas-base-dev liblapack-dev libblas-dev gfortran
                  sudo apt -y install libhdf5-serial-dev hdf5-tools
 
-echo $(date -u) "05.1 von 30: Python 3.6 installieren und de-aktivieren der alten Version"  | tee -a  ~/Installation.log
-echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 #sudo apt -y install python3.7
-                 sudo apt -y install python3-dev locate python3-venv binfmt-support
-                 #sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
-                 #sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
-                 #sudo rm /usr/bin/python3
-                 #sudo ln -s /usr/bin/python3.7 /usr/bin/python3
 
-echo $(date -u) "06 von 30: Pakete für SciPy"  | tee -a  ~/Installation.log
+echo $(date -u) "06 von 30: Pakete zur Vorbereitung für SciPy"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  sudo apt -y install libfreetype6-dev python3-setuptools
                  sudo apt -y install protobuf-compiler libprotobuf-dev openssl
@@ -225,10 +222,10 @@ echo $(date -u) "...............................................................
                 
                  sudo -H pip3 install -U numpy==1.16.1 future==0.18.2 mock==3.0.5 h5py==2.10.0 keras_preprocessing==1.1.1 keras_applications==1.0.8 gast==0.3.3 futures protobuf pybind11
                  
-                 sudo apt -y install cython-doc
+                # sudo apt -y install cython-doc
                  sudo apt -y install cython3
-                 sudo -H pip3 install -U cython==0.29.21
-                 sudo apt -y install cython
+                # sudo -H pip3 install -U cython==0.29.21
+                # sudo apt -y install cython
                  sudo apt -y install python3-matplotlib
                  sudo -H pip3 install -U pycocotools==2.0.2
                  sudo -H pip3 install -U scipy==1.4.1
@@ -242,15 +239,14 @@ echo $(date -u) "...............................................................
                  export CUDA_VISIBLE_DEVICES=0
                  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/lib
                  export PATH=$PATH:/usr/local/cuda/bin
-                 #sudo -H pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow-gpu==1.15.0+nv20.1
-                 #####################################################
-                 # Letzte Version V2.x.x von Tensorflow installieren #
-                 # sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
                  
-                 # Letzte Version 1.x von tensorflow installieren    #
-                 sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 'tensorflow<2'
-                 #####################################################
-
+                 if [ $TensorFlow = "1" ]
+                 then
+                          sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 'tensorflow<2'
+                 else
+                          sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
+                 fi
+                
                  echo 'export CUDA_VISIBLE_DEVICES=0' >> ~/.bashrc
                  echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/lib' >> ~/.bashrc
                  echo 'export PATH=$PATH:/usr/local/cuda/bin' >> ~/.bashrc
