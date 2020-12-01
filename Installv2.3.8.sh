@@ -144,15 +144,15 @@ echo $(date -u) "...............................................................
 echo $(date -u) "13 von 30: Pythonpakete und Tools"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  wget https://bootstrap.pypa.io/get-pip.py
-                 sudo -H python3 get-pip.py
+                 sudo python3 get-pip.py
                  rm get-pip.py
-                 sudo -H apt -y install python3-pip
-                 sudo -H pip3 install -U pip testresources setuptools
+                 sudo apt -y install python3-pip
+                 sudo pip3 install -U pip testresources setuptools
 
 echo $(date -u) "14 von 30: Virtuelle Umgebung installieren, anpassen und aktivieren"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cd ~
-                 sudo -H pip3 install virtualenv virtualenvwrapper
+                 sudo pip3 install virtualenv virtualenvwrapper
                  export WORKON_HOME=$HOME/.virtualenvs
                  export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
@@ -217,21 +217,21 @@ echo $(date -u) "...............................................................
                  sudo apt-get update
                  sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
                  sudo apt-get install python3-pip
-                 sudo -H pip3 install -U pip testresources setuptools==49.6.0               
+                 sudo pip3 install -U pip testresources setuptools==49.6.0               
                 
                 
-                 sudo -H pip3 install -U numpy==1.16.1 future==0.18.2 mock==3.0.5 h5py==2.10.0 keras_preprocessing==1.1.1 keras_applications==1.0.8 gast==0.3.3 futures protobuf pybind11
+                 sudo pip3 install -U numpy==1.16.1 future==0.18.2 mock==3.0.5 h5py==2.10.0 keras_preprocessing==1.1.1 keras_applications==1.0.8 gast==0.3.3 futures protobuf pybind11
                  
                 # sudo apt -y install cython-doc
                  sudo apt -y install cython3
-                # sudo -H pip3 install -U cython==0.29.21
+                # sudo pip3 install -U cython==0.29.21
                 # sudo apt -y install cython
                  sudo apt -y install python3-matplotlib
-                 sudo -H pip3 install -U pycocotools==2.0.2
-                 sudo -H pip3 install -U scipy==1.4.1
-                 sudo -H pip3 install -U keras==2.3.1
-                 sudo -H pip3 install -U grpcio==1.28.1 absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 requests==2.23.0 
-                 sudo -H pip3 install -U astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0  
+                 sudo pip3 install -U --ignore-installed pycocotools==2.0.2
+                 sudo pip3 install -U scipy==1.4.1
+                 sudo pip3 install -U keras==2.3.1
+                 sudo pip3 install -U grpcio==1.28.1 absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 requests==2.23.0 
+                 sudo pip3 install -U astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0  
 
 #                 sudo pip3 install -U h5py==2.10.0 astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0 setuptools==49.6.0 testresources==2.0.1 
 #                 sudo pip3 install -U pybind11==2.5.0
@@ -242,9 +242,9 @@ echo $(date -u) "...............................................................
                  
                  if [ $TensorFlow = "1" ]
                  then
-                          sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 'tensorflow<2'
+                          sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 'tensorflow<2'
                  else
-                          sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
+                          sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
                  fi
                 
                  echo 'export CUDA_VISIBLE_DEVICES=0' >> ~/.bashrc
@@ -361,7 +361,7 @@ echo $(date -u) "...............................................................
 echo $(date -u) "26 von 30: Kleiner WEBServer, Jupyter Notebook und Systemtoolsmachen die Arbeit einfacher"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  pip3 install flask jupyter
-                 sudo -H pip3 install -U jetson-stats
+                 sudo pip3 install -U jetson-stats
                  cd ~
 
 echo $(date -u) "27 von 30: XML-Tool und Fortschrittsanzeige"  | tee -a  ~/Installation.log
