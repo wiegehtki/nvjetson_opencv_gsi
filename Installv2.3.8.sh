@@ -230,7 +230,7 @@ echo $(date -u) "...............................................................
                  sudo pip3 install -U --ignore-installed pycocotools==2.0.2
                  sudo pip3 install -U scipy==1.4.1
                  sudo pip3 install -U keras==2.3.1
-                 sudo pip3 install -U grpcio==1.28.1 absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 requests==2.23.0 
+                 sudo pip3 install -U grpcio absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 requests==2.23.0 
                  sudo pip3 install -U astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0  
 
 #                 sudo pip3 install -U h5py==2.10.0 astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0 setuptools==49.6.0 testresources==2.0.1 
