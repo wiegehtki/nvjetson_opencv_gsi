@@ -31,7 +31,6 @@
 * **TensorFlow 1.x.x oder 2.x.x kann jetzt mittels Parameter ausgewählt werden.**
 
 #### Wichtig: Installationsscript Installv2.3.6.sh (rev e) funktioniert nur für JP4.4 und nicht bei 4.4.1
-* Danke an Marco für das Feedback
 
 
 Verwendet bei der Installation bitte als Benutzer **nvidia** da leider etliche Scripte, die man im Internet findet und verwenden möchte, diesen Benutzer hardcodiert haben. Alternativ müsst Ihr solche 3rd Party - Scripte debuggen und anpassen.
