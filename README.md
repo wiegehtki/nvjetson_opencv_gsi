@@ -17,16 +17,22 @@
 * **Technologischer Deep Dive in YOLO:** https://www.youtube.com/watch?v=KMg6BwNDqBY
 * **Installation dieses Repository's auf dem NANO:** https://www.youtube.com/watch?v=ZuGNQYPJqKk&t=2793s
 
-#### Das neueste Image (JP 4.4 vom 07.07.2020) für den Nano könnt Ihr hier herunterladen: https://developer.nvidia.com/jetson-nano-sd-card-image oder über den NVIDIA® Download Center suchen, falls bestimmte Versionen benötigt werden: https://developer.nvidia.com/embedded/downloads
+#### Das neueste Image (JP 4.4.1) für den Nano oder Xavier NX könnt Ihr hier herunterladen: https://developer.nvidia.com/embedded/downloads oder über den NVIDIA® Download Center suchen, falls bestimmte Versionen benötigt werden.
 
  
-#### JP 4.4. bietet Unterstützung u.a. für:
+#### JP 4.4.1 bietet Unterstützung u.a. für:
 * **CUDA 10.2**
 * **cuDNN 8.0**
 * **TensorRT 7.1.3**
 
-#### Erweitertes Installationsscript Installv2.3.6.sh (rev c)
+#### Erweitertes Installationsscript Installv2.3.8.sh (rev f)
 * **Die Plattform Nano bzw. Jetson wird jetzt automatisch erkannt.** 
+* **Unterstützung für JP4.4.1.
+* **TensorFlow 1.x.x oder 2.x.x kann jetzt mittels Parameter ausgewählt werden.
+
+#### Wichtig: Installationsscript Installv2.3.6.sh (rev e) funktioniert nur für JP4.4 und nicht bei 4.4.1
+* **Danke an Marco für das Feedback
+
 
 Verwendet bei der Installation bitte als Benutzer **nvidia** da leider etliche Scripte, die man im Internet findet und verwenden möchte, diesen Benutzer hardcodiert haben. Alternativ müsst Ihr solche 3rd Party - Scripte debuggen und anpassen.
 
