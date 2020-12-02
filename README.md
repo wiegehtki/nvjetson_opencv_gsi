@@ -29,10 +29,10 @@
 * **Die Plattform Nano bzw. Jetson wird jetzt automatisch erkannt.** 
 * **Unterstützung für JP4.4.1.**
 * **TensorFlow 1.x.x oder 2.x.x kann jetzt mittels Parameter ausgewählt werden.**
+**Dazu den Wert von 1 auf 2 ändern. Es wird dann der letztgültige Stand der jeweiligen Version installiert:**
 ```
     TensorFlow="1"
 ```
-* **Dazu den Wert von 1 auf 2 ändern. Es wird dann der letztgültige Stand der jeweiligen Version installiert.**
 
 #### Wichtig: Installationsscript Installv2.3.6.sh (rev e) funktioniert nur für JP4.4 und nicht bei 4.4.1
 
