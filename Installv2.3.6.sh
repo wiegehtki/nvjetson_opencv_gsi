@@ -119,7 +119,7 @@ echo $(date -u) "...............................................................
 echo $(date -u) "11 von 30: PreCompiler: cmake 3.17.1"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  sudo apt -y purge cmake
-                 wget http://www.cmake.org/files/v3.17/cmake-3.17.1.tar.gz
+                 wget https://www.cmake.org/files/v3.17/cmake-3.17.1.tar.gz
                  tar xpvf cmake-3.17.1.tar.gz
                  cd   ~/cmake-3.17.1/
                  ./bootstrap
