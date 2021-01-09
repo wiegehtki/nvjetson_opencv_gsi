@@ -197,7 +197,7 @@ echo $(date -u) "...............................................................
                  sudo apt -y install cython3
                  sudo apt -y install python3-matplotlib
                  sudo pip3 install -U --ignore-installed pycocotools==2.0.2
-                 sudo -H python3 -m pip install -U --no-use-pep517 scipy==1.19.5
+                 sudo -H python3 -m pip install -U --no-use-pep517 scipy
                  sudo pip3 install -U keras==2.3.1
                  sudo pip3 install -U grpcio absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 requests==2.23.0 
                  sudo pip3 install -U astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0  
