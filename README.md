@@ -25,10 +25,8 @@
 * **cuDNN 8.0**
 * **TensorRT 7.1.3**
 
-#### Erweitertes Installationsscript Installv2.3.9.sh (Test, rev a)
-* **Änderungen im pip3 handling, noch im Test** 
 
-#### Erweitertes Installationsscript Installv2.3.8.sh (Stable, rev f)
+#### Erweitertes Installationsscript Installv2.3.8.sh (Stable, rev g)
 * **Die Plattform Nano bzw. Jetson wird jetzt automatisch erkannt.** 
 * **Unterstützung für JP4.4.1.**
 * **TensorFlow 1.x.x oder 2.x.x kann jetzt mittels Parameter ausgewählt werden.**
