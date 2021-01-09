@@ -59,7 +59,7 @@ sudo jetson_clocks
 
 1.  Einloggen und das **Terminal** öffnen
 2.  **Einstellungen -> Terminal -> Scrolling** deaktivieren (Limit auf 10000 lines ausschalten)
-3.  Im Terminal dann folgende Befehle eingeben (die Befehle `sudo su` und `./nvidia2sudoers.sh` gefolgt von `exit` sind unter JP4.4.1 nicht mehr erforderlich):
+3.  Im Terminal dann folgende Befehle eingeben (die Befehle `sudo su` und `./nvidia2sudoers.sh` gefolgt von `exit` sind unter JP4.4.1 nicht mehr erforderlich und können weggelassen lassen):
 ```
        cd ~
        git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
