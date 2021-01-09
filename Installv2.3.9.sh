@@ -2,13 +2,13 @@
 
 
 # Es wird empfohlen nvidia als Benutzer zu verwenden da leider einige Softwarepakete diesen hardcodiert enthalten (können) und man sucht dann lange nach Fehlern
-Benutzer="nvidia"
+export Benutzer="nvidia"
 
 
 # Hier kann die Tensorflow - Version gesetzt werden, welche installiert werden soll.
 # 1 bedeutet: Letzte aktuelle Version 1.x.x. wird installiert.
 # 2 bedeutet: Letzte aktuelle Version 2.x.x. wird installiert.
-TensorFlow="1"
+export TensorFlow="1"
 
 if [ "$(whoami)" != $Benutzer ]; then
         echo $(date -u) "Script muss als Benutzer $Benutzer ausgeführt werden!"
@@ -19,7 +19,7 @@ fi
 set +x
 
 # Name der virtuellen Umgebung, kann nach persönlichem Geschmack problemlos geändert werden
-VirtEnv="tf15cv4"
+export VirtEnv="tf15cv4"
 
 #Vorbelegung CompilerFlags und Warnungen zu unterdrücken die durch automatisch generierten Code schnell mal entstehen können und keine wirkliche Relevanz haben
 export CFLAGS=$CFLAGS" -w"
