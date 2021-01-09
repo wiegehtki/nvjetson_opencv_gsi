@@ -98,6 +98,7 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "07 von 30: XML Tool für Tensorflow API Objekterkennung"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
+
                  sudo apt -y install libxml2-dev libxslt1-dev
 
 echo $(date -u) "08 von 30: Pakete für OpenCV incl. Codecs, Image und GUI Bibliotheken"  | tee -a  ~/Installation.log
@@ -144,7 +145,7 @@ echo $(date -u) "...............................................................
 echo $(date -u) "13 von 30: Pythonpakete und Tools"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  wget https://bootstrap.pypa.io/get-pip.py
-                 sudo python3 get-pip.py
+                 sudo -H python3 get-pip.py
                  rm get-pip.py
                  sudo apt -y install python3-pip
                  python3 -m pip install pip testresources setuptools

@@ -59,7 +59,7 @@ sudo jetson_clocks
 
 1.  Einloggen und das **Terminal** öffnen
 2.  **Einstellungen -> Terminal -> Scrolling** deaktivieren (Limit auf 10000 lines ausschalten)
-3.  Im Terminal dann folgende Befehle eingeben (die Befehle `sudo su` und `./nvidia2sudoers.sh` gefolgt von `exit` sind unter JP4.4.1 nicht mehr erforderlich und können weggelassen lassen):
+3.  Im Terminal dann folgende Befehle eingeben:
 ```
        cd ~
        git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
@@ -71,7 +71,12 @@ sudo jetson_clocks
        cd ~
        ./Installv2.3.8.sh
 ```
-**Information:** Der Benutzer **nvidia** wird dabei in die **sudoers** (Superuser) - Gruppe aufgenommen (nur JP4.4) Der Hintergrund ist, dass die Installation lange laufen wird (ca. 6-7 Stunden) und Ihr ansonsten immer wieder das Kennwort des Benutzers eingeben müsst damit einige Installationsschritte mit **sudo** - Rechten durchgeführt werden können. Nachdem ab JP4.4.1 der Benutzer standardmäßig in die sudoers - Gruppe aufgenommen wird, kann das unter JP4.4 dann auch anschließend so belassen werden.
+**Wichtig:** Der Benutzer **nvidia** wird dabei in die **sudoers** (Superuser) - Gruppe aufgenommen. Der Hintergrund ist, dass die Installation lange laufen wird (ca. 6-7 Stunden) und Ihr ansonsten immer wieder das Kennwort des Benutzers eingeben müsst damit einige Installationsschritte mit **sudo** - Rechten durchgeführt werden können. Das ist nervig und kann entsprechend mit den vorgenannten Schritten vermieden werden. Ihr könnt die sudo - Rechte nach der Installation bei Bedarf wieder wegnehmen, indem ihr im Terminal folgende Befehle ausführt:
+```
+   cd ~
+   sudo su
+   ./nvidiaNOsudoers.sh
+```
 
 #### Kontrolle des Installationsfortschritts
 
