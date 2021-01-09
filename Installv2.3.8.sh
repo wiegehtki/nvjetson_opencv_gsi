@@ -51,7 +51,7 @@ echo $(date -u) "###############################################################
 echo $(date -u) "# Objekterkennung mit OpenCV, TensorFlow, YOLO. By WIEGEHTKI.DE                                                                     #" | tee -a  ~/Installation.log
 echo $(date -u) "# Zur freien Verwendung. Ohne Gewähr und nur auf Testsystemen anzuwenden                                                            #" | tee -a  ~/Installation.log
 echo $(date -u) "#                                                                                                                                   #" | tee -a  ~/Installation.log
-echo $(date -u) "# V2.3.8 (Rev f), 03.12.2020 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX, Beta für AGX mit JP 4.4.1                #" | tee -a  ~/Installation.log
+echo $(date -u) "# V2.3.8 (Rev g), 09.01.2021 - Unterstützt NVIDIA Jetson NANO und NVIDIA Jetson Xavier NX, Beta für AGX mit JP 4.4.1                #" | tee -a  ~/Installation.log
 echo $(date -u) "#####################################################################################################################################" | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
 echo $(date -u) "01 von 30: SUDO - Rechte um ohne Passworteingabe zukünftig installieren zu können als root durchgeführt?"  | tee -a  ~/Installation.log
@@ -197,7 +197,7 @@ echo $(date -u) "...............................................................
                  sudo apt -y install cython3
                  sudo apt -y install python3-matplotlib
                  sudo pip3 install -U --ignore-installed pycocotools==2.0.2
-                 sudo pip3 install -U scipy==1.4.1
+                 sudo python3 -m pip install -U --no-use-pep517 scipy==1.4.1
                  sudo pip3 install -U keras==2.3.1
                  sudo pip3 install -U grpcio absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 requests==2.23.0 
                  sudo pip3 install -U astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0  
