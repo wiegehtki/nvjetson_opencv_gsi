@@ -114,12 +114,12 @@ echo $(date -u) "10 von 30: WIEGEHTKI Repo-clone"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cd ~
                  git clone https://github.com/wiegehtki/nvjetson_opencv_gsi.git
-		 chmod +x ~/nvjetson_opencv_gsi/*
+                 chmod +x ~/nvjetson_opencv_gsi/*
                  mv ~/nvjetson_opencv_gsi/darknet.repo ~/darknet
-		 mv ~/nvjetson_opencv_gsi/smartcam.sh  ~/darknet/
-		 cp -r ~/nvjetson_opencv_gsi/Objekterkennung/Videos_Ausgabe ~/darknet/
-		 cp -r ~/nvjetson_opencv_gsi/Objekterkennung/Videos_Eingabe ~/darknet/
-		 chmod +x ~/darknet/*
+                 mv ~/nvjetson_opencv_gsi/smartcam.sh  ~/darknet/
+                 cp -r ~/nvjetson_opencv_gsi/Objekterkennung/Videos_Ausgabe ~/darknet/
+                 cp -r ~/nvjetson_opencv_gsi/Objekterkennung/Videos_Eingabe ~/darknet/
+                 chmod +x ~/darknet/*
 
 echo $(date -u) "11 von 30: PreCompiler: cmake 3.19.0"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -146,12 +146,12 @@ echo $(date -u) "...............................................................
                  sudo python3 get-pip.py
                  rm get-pip.py
                  sudo apt -y install python3-pip
-                 sudo pip3 install -U pip testresources setuptools
+                 sudo -H pip3 install -U pip testresources setuptools
 
 echo $(date -u) "14 von 30: Virtuelle Umgebung installieren, anpassen und aktivieren"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cd ~
-                 sudo pip3 install virtualenv virtualenvwrapper
+                 sudo -H pip3 install virtualenv virtualenvwrapper
                  export WORKON_HOME=$HOME/.virtualenvs
                  export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
@@ -192,15 +192,15 @@ echo $(date -u) "...............................................................
                  sudo apt-get update
                  sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
                  sudo apt-get install python3-pip
-                 sudo pip3 install -U pip testresources setuptools==49.6.0               
-                 sudo pip3 install -U numpy==1.16.1 future==0.18.2 mock==3.0.5 h5py==2.10.0 keras_preprocessing==1.1.1 keras_applications==1.0.8 gast==0.3.3 futures protobuf pybind11
+                 sudo -H pip3 install -U pip testresources setuptools==49.6.0               
+                 sudo -H pip3 install -U numpy==1.16.1 future==0.18.2 mock==3.0.5 h5py==2.10.0 keras_preprocessing==1.1.1 keras_applications==1.0.8 gast==0.3.3 futures protobuf pybind11
                  sudo apt -y install cython3
                  sudo apt -y install python3-matplotlib
-                 sudo pip3 install -U --ignore-installed pycocotools==2.0.2
+                 sudo -H pip3 install -U --ignore-installed pycocotools==2.0.2
                  sudo -H python3 -m pip install -U --no-use-pep517 scipy
-                 sudo pip3 install -U keras==2.3.1
-                 sudo pip3 install -U grpcio absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 requests==2.23.0 
-                 sudo pip3 install -U astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0  
+                 sudo -H pip3 install -U keras==2.3.1
+                 sudo -H pip3 install -U grpcio absl-py==0.9.0 py-cpuinfo==5.0.0 psutil==5.7.0 portpicker==1.3.1 six==1.14.0 requests==2.23.0 
+                 sudo -H pip3 install -U astor==0.8.1 termcolor==1.1.0 wrapt==1.12.1 google-pasta==0.2.0  
 
                  export CUDA_VISIBLE_DEVICES=0
                  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/lib
@@ -208,9 +208,9 @@ echo $(date -u) "...............................................................
                  
                  if [ $TensorFlow = "1" ]
                  then
-                          sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 'tensorflow<2'
+                          sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 'tensorflow<2'
                  else
-                          sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
+                          sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
                  fi
                 
                  echo 'export CUDA_VISIBLE_DEVICES=0' >> ~/.bashrc
@@ -307,7 +307,7 @@ echo $(date -u) "24 von 30: Weitere Bibliotheken installieren (nice2have)"  | te
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cd ~
 
-                 pip3 install -U matplotlib==3.2.1 scikit-learn
+                 pip3 install -U matplotlib scikit-learn
                  sudo apt -y install python3-tk
                  pip3 install pillow==7.1.2 imutils==0.5.3 
 
@@ -327,7 +327,7 @@ echo $(date -u) "...............................................................
 echo $(date -u) "26 von 30: Kleiner WEBServer, Jupyter Notebook und Systemtoolsmachen die Arbeit einfacher"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  pip3 install flask jupyter
-                 sudo pip3 install -U jetson-stats
+                 sudo -H pip3 install -U jetson-stats
                  cd ~
 
 echo $(date -u) "27 von 30: XML-Tool und Fortschrittsanzeige"  | tee -a  ~/Installation.log
