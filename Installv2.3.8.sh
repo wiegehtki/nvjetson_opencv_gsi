@@ -307,8 +307,7 @@ echo $(date -u) "24 von 30: Weitere Bibliotheken installieren (nice2have)"  | te
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
                  cd ~
 
-                 pip3 install -U matplotlib scikit-learn
-                 sudo apt -y install python3-tk
+                 pip3 install -U scikit-learn
                  pip3 install pillow==7.1.2 imutils==0.5.3 
 
 echo $(date -u) "25 von 30: Installation von dlib und face recognition"  | tee -a  ~/Installation.log
