@@ -314,17 +314,15 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "25 von 30: Installation von dlib und face recognition"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 cd ~/zoneminder/dlib
-                 python ./setup.py install 
-				 #wget http://dlib.net/files/dlib-19.19.tar.bz2
-                 #tar xvf dlib-19.19.tar.bz2
-                 #cd dlib-19.19/
-                 #mkdir build
-                 #cd build
-                 #cmake ..
-                 #cmake --build . --config Release
-                 #sudo make install
-                 #sudo ldconfig
+                 wget http://dlib.net/files/dlib-19.19.tar.bz2
+                 tar xvf dlib-19.19.tar.bz2
+                 cd dlib-19.19/
+                 mkdir build
+                 cd build
+                 cmake ..
+                 cmake --build . --config Release
+                 sudo make install
+                 sudo ldconfig
 
 echo $(date -u) "26 von 30: Kleiner WEBServer, Jupyter Notebook und Systemtoolsmachen die Arbeit einfacher"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
