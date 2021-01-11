@@ -278,7 +278,7 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "22 von 30: OpenCV herunterladen, compilieren und installieren"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 cmake	-D CMAKE_BUILD_TYPE=RELEASE \
+                 cmake  -D CMAKE_BUILD_TYPE=RELEASE \
                         -D OPENCV_GENERATE_PKGCONFIG=YES \
                         -D WITH_CUDA=ON \
                         -D CUDA_ARCH_PTX="" \
@@ -295,8 +295,10 @@ echo $(date -u) "...............................................................
                         -D BUILD_EXAMPLES=OFF \
                         -D OPENCV_ENABLE_NONFREE=ON \
                         -D OPENCV_EXTRA_MODULES_PATH=/home/$Benutzer/opencv_contrib/modules ..
+ 
                  make  -j4
                  sudo make install
+
 
 echo $(date -u) "23 von 30: OpenCV Symbolic-Link setzen "  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
@@ -312,16 +314,17 @@ echo $(date -u) "...............................................................
 
 echo $(date -u) "25 von 30: Installation von dlib und face recognition"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
-                 cd ~
-                 wget http://dlib.net/files/dlib-19.19.tar.bz2
-                 tar xvf dlib-19.19.tar.bz2
-                 cd dlib-19.19/
-                 mkdir build
-                 cd build
-                 cmake ..
-                 cmake --build . --config Release
-                 sudo make install
-                 sudo ldconfig
+                 cd ~/zoneminder/dlib
+                 python ./setup.py install 
+				 #wget http://dlib.net/files/dlib-19.19.tar.bz2
+                 #tar xvf dlib-19.19.tar.bz2
+                 #cd dlib-19.19/
+                 #mkdir build
+                 #cd build
+                 #cmake ..
+                 #cmake --build . --config Release
+                 #sudo make install
+                 #sudo ldconfig
 
 echo $(date -u) "26 von 30: Kleiner WEBServer, Jupyter Notebook und Systemtoolsmachen die Arbeit einfacher"  | tee -a  ~/Installation.log
 echo $(date -u) "....................................................................................................................................." | tee -a  ~/Installation.log
